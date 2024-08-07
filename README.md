@@ -1,6 +1,7 @@
 # Probabilistic Coseismic Displacement Hazard Model
 Framework for calculating coastal coseismic displacement using national seismic hazard model solutions 
-in the Wellington Region. 
+in the Wellington Region. This repository accompanies the manuscript "A probabilistic model for coseismic vertical 
+displacement hazard in coastal settings" by Delano et al. (in prep). 
 
 ## Scripts
 Scripts are all in the `scripts` directory. 
