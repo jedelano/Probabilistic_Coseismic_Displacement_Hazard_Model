@@ -1,0 +1,80 @@
+[
+  {
+    "name": "OpenSHA Build Information",
+    "className": "org.opensha.sha.earthquake.faultSysSolution.modules.BuildInfoModule",
+    "path": "ruptures/",
+    "assets": [
+      "build_info.json"
+    ]
+  },
+  {
+    "name": "Section Areas",
+    "className": "org.opensha.sha.earthquake.faultSysSolution.modules.SectAreas$Precomputed",
+    "path": "ruptures/",
+    "assets": [
+      "sect_areas.csv"
+    ]
+  },
+  {
+    "name": "Info",
+    "className": "org.opensha.sha.earthquake.faultSysSolution.modules.InfoModule",
+    "path": "ruptures/",
+    "assets": [
+      "info.txt"
+    ]
+  },
+  {
+    "name": "Plausibility Configuration",
+    "className": "org.opensha.sha.earthquake.faultSysSolution.ruptures.plausibility.PlausibilityConfiguration",
+    "path": "ruptures/",
+    "assets": [
+      "plausibility.json"
+    ]
+  },
+  {
+    "name": "Single-Strand Cluster Ruptures",
+    "className": "org.opensha.sha.earthquake.faultSysSolution.modules.ClusterRuptures$SingleStranded",
+    "path": "ruptures/",
+    "assets": []
+  },
+  {
+    "name": "Logic Tree Branch",
+    "className": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_LogicTreeBranch",
+    "path": "ruptures/",
+    "assets": [
+      "logic_tree_branch.json"
+    ]
+  },
+  {
+    "name": "NZSHM22_ScalingRelationship Average Slips",
+    "className": "org.opensha.sha.earthquake.faultSysSolution.modules.AveSlipModule$Precomputed",
+    "path": "ruptures/",
+    "assets": [
+      "average_slips.csv"
+    ]
+  },
+  {
+    "name": "Section Slip Rates",
+    "className": "org.opensha.sha.earthquake.faultSysSolution.modules.SectSlipRates$Precomputed",
+    "path": "ruptures/",
+    "assets": [
+      "sect_slip_rates.csv"
+    ]
+  },
+  {
+    "name": "NZSHM22 Subduction Inversion Target MFDs",
+    "className": "org.opensha.sha.earthquake.faultSysSolution.modules.InversionTargetMFDs$Precomputed",
+    "path": "ruptures/",
+    "assets": [
+      "inversion_target_mfds.json"
+    ]
+  },
+  {
+    "name": "Modified Section Minimum Magnitudes",
+    "className": "org.opensha.sha.earthquake.faultSysSolution.modules.ModSectMinMags$Precomputed",
+    "path": "ruptures/",
+    "assets": [
+      "mod_sect_min_mags.csv"
+    ]
+  }
+]

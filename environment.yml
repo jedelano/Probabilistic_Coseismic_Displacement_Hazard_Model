@@ -1,0 +1,16 @@
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - cutde
+  - fiona
+  - geopandas
+  - git-lfs
+  - matplotlib
+  - meshio
+  - netCDF4
+  - numpy
+  - openpyxl
+  - rasterio
+  - scipy
+  - shapely

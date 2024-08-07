@@ -1,0 +1,18 @@
+[
+  {
+    "name": "OpenSHA Build Information",
+    "className": "org.opensha.sha.earthquake.faultSysSolution.modules.BuildInfoModule",
+    "path": "solution/",
+    "assets": [
+      "build_info.json"
+    ]
+  },
+  {
+    "name": "Annealing Progress",
+    "className": "org.opensha.sha.earthquake.faultSysSolution.inversion.sa.completion.AnnealingProgress",
+    "path": "solution/",
+    "assets": [
+      "annealing_progress.csv"
+    ]
+  }
+]

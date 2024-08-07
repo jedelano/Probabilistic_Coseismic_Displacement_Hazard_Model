@@ -1,0 +1,2797 @@
+{
+  "paleoRateConstraints": [
+    {
+      "sectionIndex": 34,
+      "sectionName": "Alpine: George to Jacksons, Subsection 5",
+      "dataLocation": [
+        -44.403725,
+        168.07196
+      ],
+      "name": "Alpine George to Jacksons - Hokuri Creek sections",
+      "bestEstimate": 0.002985,
+      "uncertainties": [
+        {
+          "stdDev": 2.849999999999999E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.002592,
+          "upperBound": 0.003162
+        },
+        {
+          "stdDev": 2.86E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.002277,
+          "upperBound": 0.003421
+        }
+      ]
+    },
+    {
+      "sectionIndex": 8,
+      "sectionName": "Akatore, Subsection 1",
+      "dataLocation": [
+        -46.14772,
+        170.118515
+      ],
+      "name": "Akatore - Big Creek trench",
+      "bestEstimate": 2.6E-5,
+      "uncertainties": [
+        {
+          "stdDev": 1.5E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 2.0E-5,
+          "upperBound": 5.0E-5
+        },
+        {
+          "stdDev": 2.05E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.5E-5,
+          "upperBound": 9.7E-5
+        }
+      ]
+    },
+    {
+      "sectionIndex": 40,
+      "sectionName": "Alpine: George to Jacksons, Subsection 11",
+      "dataLocation": [
+        -44.052437,
+        168.656372
+      ],
+      "name": "Alpine George to Jacksons - Lake Ellery cores",
+      "bestEstimate": 0.003752,
+      "uncertainties": [
+        {
+          "stdDev": 8.799999999999999E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.002578,
+          "upperBound": 0.004338
+        },
+        {
+          "stdDev": 9.009999999999999E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.001837,
+          "upperBound": 0.005441
+        }
+      ]
+    },
+    {
+      "sectionIndex": 32,
+      "sectionName": "Alpine: George to Jacksons, Subsection 3",
+      "dataLocation": [
+        -44.514866,
+        167.865906
+      ],
+      "name": "Alpine George to Jacksons - John O\u0027Groats Wetland",
+      "bestEstimate": 0.003291,
+      "uncertainties": [
+        {
+          "stdDev": 8.35E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.002191,
+          "upperBound": 0.003861
+        },
+        {
+          "stdDev": 8.5325E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.001499,
+          "upperBound": 0.004912
+        }
+      ]
+    },
+    {
+      "sectionIndex": 46,
+      "sectionName": "Alpine: Jacksons to Kaniere, Subsection 5",
+      "dataLocation": [
+        -43.717484,
+        169.384491
+      ],
+      "name": "Alpine Jacksons to Kaniere - Lake Paringa cores",
+      "bestEstimate": 0.003831,
+      "uncertainties": [
+        {
+          "stdDev": 4.649999999999999E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.003047,
+          "upperBound": 0.003977
+        },
+        {
+          "stdDev": 4.4675E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.0025,
+          "upperBound": 0.004287
+        }
+      ]
+    },
+    {
+      "sectionIndex": 54,
+      "sectionName": "Alpine: Jacksons to Kaniere, Subsection 13",
+      "dataLocation": [
+        -43.31588,
+        170.203247
+      ],
+      "name": "Alpine Jacksons to Kaniere - Lake Mapourika cores",
+      "bestEstimate": 0.003067,
+      "uncertainties": [
+        {
+          "stdDev": 6.44E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.002376,
+          "upperBound": 0.003664
+        },
+        {
+          "stdDev": 6.702499999999998E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.001923,
+          "upperBound": 0.004604
+        }
+      ]
+    },
+    {
+      "sectionIndex": 61,
+      "sectionName": "Alpine: Jacksons to Kaniere, Subsection 20",
+      "dataLocation": [
+        -42.902023,
+        171.122955
+      ],
+      "name": "Alpine Jacksons to Kaniere - Staples 2 trench",
+      "bestEstimate": 0.00353,
+      "uncertainties": [
+        {
+          "stdDev": 0.0013815,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.001531,
+          "upperBound": 0.004294
+        },
+        {
+          "stdDev": 0.00148325,
+          "type": "TWO_SIGMA",
+          "lowerBound": 8.0E-4,
+          "upperBound": 0.006733
+        }
+      ]
+    },
+    {
+      "sectionIndex": 61,
+      "sectionName": "Alpine: Jacksons to Kaniere, Subsection 20",
+      "dataLocation": [
+        -42.901985,
+        171.122406
+      ],
+      "name": "Alpine Jacksons to Kaniere - Staples 3 trench",
+      "bestEstimate": 0.003706,
+      "uncertainties": [
+        {
+          "stdDev": 0.0012875,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.001915,
+          "upperBound": 0.00449
+        },
+        {
+          "stdDev": 0.001344,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.001126,
+          "upperBound": 0.006502
+        }
+      ]
+    },
+    {
+      "sectionIndex": 43,
+      "sectionName": "Alpine: Jacksons to Kaniere, Subsection 2",
+      "dataLocation": [
+        -43.90966,
+        169.065597
+      ],
+      "name": "Alpine Jacksons to Kaniere - Haast South trench",
+      "bestEstimate": 0.002697,
+      "uncertainties": [
+        {
+          "stdDev": 6.770000000000001E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.002085,
+          "upperBound": 0.003439
+        },
+        {
+          "stdDev": 7.4625E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.001698,
+          "upperBound": 0.004683
+        }
+      ]
+    },
+    {
+      "sectionIndex": 71,
+      "sectionName": "Alpine: Kaniere to Springs Junction, Subsection 9",
+      "dataLocation": [
+        -42.864197,
+        171.191071
+      ],
+      "name": "Alpine Kaniere to Springs Junction - Lake Kaniere cores",
+      "bestEstimate": 0.003825,
+      "uncertainties": [
+        {
+          "stdDev": 5.359999999999998E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.002932,
+          "upperBound": 0.004004
+        },
+        {
+          "stdDev": 5.532499999999999E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.002255,
+          "upperBound": 0.004468
+        }
+      ]
+    },
+    {
+      "sectionIndex": 68,
+      "sectionName": "Alpine: Kaniere to Springs Junction, Subsection 6",
+      "dataLocation": [
+        -42.701221,
+        171.519424
+      ],
+      "name": "Alpine Kaniere to Springs Junction - Lake Brunner cores",
+      "bestEstimate": 0.003629,
+      "uncertainties": [
+        {
+          "stdDev": 0.0011760000000000002,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.002134,
+          "upperBound": 0.004486
+        },
+        {
+          "stdDev": 0.001226,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.001382,
+          "upperBound": 0.006286
+        }
+      ]
+    },
+    {
+      "sectionIndex": 62,
+      "sectionName": "Alpine: Kaniere to Springs Junction, Subsection 0",
+      "dataLocation": [
+        -42.359945,
+        172.208297
+      ],
+      "name": "Alpine Springs Junction to Tophouse - Maruia Trench-1",
+      "bestEstimate": 0.002719,
+      "uncertainties": [
+        {
+          "stdDev": 7.350000000000001E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.001913,
+          "upperBound": 0.003383
+        },
+        {
+          "stdDev": 7.914999999999999E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.001426,
+          "upperBound": 0.004592
+        }
+      ]
+    },
+    {
+      "sectionIndex": 62,
+      "sectionName": "Alpine: Kaniere to Springs Junction, Subsection 0",
+      "dataLocation": [
+        -42.359705,
+        172.208785
+      ],
+      "name": "Alpine Springs Junction to Tophouse - Maruia Trench-2",
+      "bestEstimate": 0.002721,
+      "uncertainties": [
+        {
+          "stdDev": 7.604999999999999E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.001902,
+          "upperBound": 0.003423
+        },
+        {
+          "stdDev": 8.2325E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.00141,
+          "upperBound": 0.004703
+        }
+      ]
+    },
+    {
+      "sectionIndex": 129,
+      "sectionName": "Awatere: Northeast 1, Subsection 2",
+      "dataLocation": [
+        -41.955875,
+        173.465607
+      ],
+      "name": "Awatere Northeast 1 - Upcot 1 trench",
+      "bestEstimate": 9.94E-4,
+      "uncertainties": [
+        {
+          "stdDev": 3.0849999999999996E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 5.9E-4,
+          "upperBound": 0.001207
+        },
+        {
+          "stdDev": 3.25E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 3.83E-4,
+          "upperBound": 0.001683
+        }
+      ]
+    },
+    {
+      "sectionIndex": 436,
+      "sectionName": "Clarence: Northeast, Subsection 3",
+      "dataLocation": [
+        -42.063961,
+        173.642731
+      ],
+      "name": "Clarence Northeast - Ravine Stream exposure",
+      "bestEstimate": 5.44E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.1900000000000002E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 4.28E-4,
+          "upperBound": 6.66E-4
+        },
+        {
+          "stdDev": 1.2825E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 3.51E-4,
+          "upperBound": 8.64E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 453,
+      "sectionName": "Cloudy 2, Subsection 0",
+      "dataLocation": [
+        -41.467918,
+        174.308624
+      ],
+      "name": "Cloudy 2 - Cloudy seismic lines",
+      "bestEstimate": 3.16E-4,
+      "uncertainties": [
+        {
+          "stdDev": 9.699999999999999E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.91E-4,
+          "upperBound": 3.85E-4
+        },
+        {
+          "stdDev": 1.0175E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.24E-4,
+          "upperBound": 5.31E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 512,
+      "sectionName": "Dunstan, Subsection 2",
+      "dataLocation": [
+        -45.034107,
+        169.531296
+      ],
+      "name": "Dunstan - T04/2",
+      "bestEstimate": 2.23E-4,
+      "uncertainties": [
+        {
+          "stdDev": 8.700000000000001E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 8.8E-5,
+          "upperBound": 2.62E-4
+        },
+        {
+          "stdDev": 8.8E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 3.8E-5,
+          "upperBound": 3.9E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1856,
+      "sectionName": "Te Ikaarongamai, Subsection 2",
+      "dataLocation": [
+        -38.569973,
+        178.292
+      ],
+      "name": "Te Ikaarongamai - Pakarae River mouth",
+      "bestEstimate": 8.67E-4,
+      "uncertainties": [
+        {
+          "stdDev": 2.2750000000000005E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 6.14E-4,
+          "upperBound": 0.001069
+        },
+        {
+          "stdDev": 2.4E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 4.65E-4,
+          "upperBound": 0.001425
+        }
+      ]
+    },
+    {
+      "sectionIndex": 598,
+      "sectionName": "Gable End North, Subsection 2",
+      "dataLocation": [
+        -38.464764,
+        178.4185
+      ],
+      "name": "Gable End North - Puatai Beach trench",
+      "bestEstimate": 0.001021,
+      "uncertainties": [
+        {
+          "stdDev": 2.8499999999999993E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 7.02E-4,
+          "upperBound": 0.001272
+        },
+        {
+          "stdDev": 3.0825000000000004E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 5.12E-4,
+          "upperBound": 0.001745
+        }
+      ]
+    },
+    {
+      "sectionIndex": 701,
+      "sectionName": "Hohonu: South, Subsection 8",
+      "dataLocation": [
+        -42.90934,
+        170.77272
+      ],
+      "name": "Hohonu South - Lower Mikonui River exposure",
+      "bestEstimate": 6.1E-5,
+      "uncertainties": [
+        {
+          "stdDev": 2.6000000000000002E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 2.4E-5,
+          "upperBound": 7.6E-5
+        },
+        {
+          "stdDev": 2.9750000000000005E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.2E-5,
+          "upperBound": 1.31E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 829,
+      "sectionName": "Inglewood, Subsection 1",
+      "dataLocation": [
+        -39.172672,
+        174.148392
+      ],
+      "name": "Inglewood - Egmont Road trenches",
+      "bestEstimate": 1.66E-4,
+      "uncertainties": [
+        {
+          "stdDev": 6.55E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 7.0E-5,
+          "upperBound": 2.01E-4
+        },
+        {
+          "stdDev": 7.0E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 3.8E-5,
+          "upperBound": 3.18E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 828,
+      "sectionName": "Inglewood, Subsection 0",
+      "dataLocation": [
+        -39.124008,
+        174.284409
+      ],
+      "name": "Inglewood - Everett Park trench",
+      "bestEstimate": 1.65E-4,
+      "uncertainties": [
+        {
+          "stdDev": 6.6E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 7.0E-5,
+          "upperBound": 2.02E-4
+        },
+        {
+          "stdDev": 7.0E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 3.8E-5,
+          "upperBound": 3.18E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 885,
+      "sectionName": "Kekerengu 1, Subsection 0",
+      "dataLocation": [
+        -41.970585,
+        174.027832
+      ],
+      "name": "Kekerengu 1 - Kekerengu Trench 1",
+      "bestEstimate": 0.002455,
+      "uncertainties": [
+        {
+          "stdDev": 7.295E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.001704,
+          "upperBound": 0.003163
+        },
+        {
+          "stdDev": 8.045000000000001E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.001312,
+          "upperBound": 0.00453
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1357,
+      "sectionName": "Oaonui, Subsection 0",
+      "dataLocation": [
+        -39.37759,
+        173.866852
+      ],
+      "name": "Kina - Kina Fault trench",
+      "bestEstimate": 5.28E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.6450000000000001E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 3.5E-4,
+          "upperBound": 6.79E-4
+        },
+        {
+          "stdDev": 1.8475E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 2.49E-4,
+          "upperBound": 9.88E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 989,
+      "sectionName": "Lachlan 3, Subsection 4",
+      "dataLocation": [
+        -39.10519,
+        177.999466
+      ],
+      "name": "Lachlan 3 - Table Cape trenches",
+      "bestEstimate": 8.41E-4,
+      "uncertainties": [
+        {
+          "stdDev": 2.9450000000000006E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 4.31E-4,
+          "upperBound": 0.00102
+        },
+        {
+          "stdDev": 3.1E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 2.52E-4,
+          "upperBound": 0.001492
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1199,
+      "sectionName": "Mohaka: South, Subsection 9",
+      "dataLocation": [
+        -39.583759,
+        176.388275
+      ],
+      "name": "Mohaka South - McCool 1 Trench",
+      "bestEstimate": 3.29E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.2800000000000002E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.57E-4,
+          "upperBound": 4.13E-4
+        },
+        {
+          "stdDev": 1.38E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 8.9E-5,
+          "upperBound": 6.41E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1206,
+      "sectionName": "Mokonui Southwest, Subsection 2",
+      "dataLocation": [
+        -40.895351,
+        175.635971
+      ],
+      "name": "Mokonui Southwest - Viewfield Trench",
+      "bestEstimate": 5.16E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.8199999999999998E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 2.77E-4,
+          "upperBound": 6.41E-4
+        },
+        {
+          "stdDev": 1.955E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.68E-4,
+          "upperBound": 9.5E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1357,
+      "sectionName": "Oaonui, Subsection 0",
+      "dataLocation": [
+        -39.396492,
+        173.785492
+      ],
+      "name": "Oaonui - Oaonui coastal cliff exposure",
+      "bestEstimate": 2.11E-4,
+      "uncertainties": [
+        {
+          "stdDev": 7.849999999999998E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.1E-4,
+          "upperBound": 2.67E-4
+        },
+        {
+          "stdDev": 8.425E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 6.4E-5,
+          "upperBound": 4.01E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1368,
+      "sectionName": "Ohariu, Subsection 3",
+      "dataLocation": [
+        -41.084667,
+        174.8947
+      ],
+      "name": "Ohariu - Taupo Swamp",
+      "bestEstimate": 6.34E-4,
+      "uncertainties": [
+        {
+          "stdDev": 2.52E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 2.73E-4,
+          "upperBound": 7.77E-4
+        },
+        {
+          "stdDev": 2.7325E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.44E-4,
+          "upperBound": 0.001237
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1366,
+      "sectionName": "Ohariu, Subsection 1",
+      "dataLocation": [
+        -40.970287,
+        174.983612
+      ],
+      "name": "Ohariu - MacKays Crossing Trench",
+      "bestEstimate": 4.43E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.75E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.94E-4,
+          "upperBound": 5.44E-4
+        },
+        {
+          "stdDev": 1.8775E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.03E-4,
+          "upperBound": 8.54E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1564,
+      "sectionName": "Pihama, Subsection 2",
+      "dataLocation": [
+        -39.51165,
+        173.909088
+      ],
+      "name": "Pihama - Pihama coastal cliff exposure",
+      "bestEstimate": 1.86E-4,
+      "uncertainties": [
+        {
+          "stdDev": 5.9999999999999995E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.25E-4,
+          "upperBound": 2.45E-4
+        },
+        {
+          "stdDev": 6.825E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 9.3E-5,
+          "upperBound": 3.66E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1582,
+      "sectionName": "Porters Pass, Subsection 1",
+      "dataLocation": [
+        -43.297096,
+        171.744019
+      ],
+      "name": "Porters Pass - Porters Pass Trench 1",
+      "bestEstimate": 5.83E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.74E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 3.52E-4,
+          "upperBound": 7.0E-4
+        },
+        {
+          "stdDev": 1.8075E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 2.31E-4,
+          "upperBound": 9.54E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1698,
+      "sectionName": "Ruahine: North, Subsection 2",
+      "dataLocation": [
+        -39.28207,
+        176.468613
+      ],
+      "name": "Ruahine North - Davis Trenches",
+      "bestEstimate": 5.44E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.9449999999999998E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 2.78E-4,
+          "upperBound": 6.67E-4
+        },
+        {
+          "stdDev": 2.0425E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.62E-4,
+          "upperBound": 9.79E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1892,
+      "sectionName": "Titri Central, Subsection 1",
+      "dataLocation": [
+        -46.057114,
+        170.030579
+      ],
+      "name": "Titri Central - Clarendon T16/03 trench",
+      "bestEstimate": 9.8E-5,
+      "uncertainties": [
+        {
+          "stdDev": 3.85E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 4.6E-5,
+          "upperBound": 1.23E-4
+        },
+        {
+          "stdDev": 4.25E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 2.3E-5,
+          "upperBound": 1.93E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2037,
+      "sectionName": "Waimana: North, Subsection 3",
+      "dataLocation": [
+        -38.086498,
+        177.133118
+      ],
+      "name": "Waimana North - Moana trench",
+      "bestEstimate": 3.12E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.42E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 8.9E-5,
+          "upperBound": 3.73E-4
+        },
+        {
+          "stdDev": 1.685E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 3.7E-5,
+          "upperBound": 7.11E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2043,
+      "sectionName": "Waimana: South, Subsection 0",
+      "dataLocation": [
+        -38.989807,
+        176.78566
+      ],
+      "name": "Waimana North - Te Hoe / Hautapu Trench",
+      "bestEstimate": 5.55E-4,
+      "uncertainties": [
+        {
+          "stdDev": 2.5600000000000004E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.94E-4,
+          "upperBound": 7.06E-4
+        },
+        {
+          "stdDev": 3.075E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 9.3E-5,
+          "upperBound": 0.001323
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2039,
+      "sectionName": "Waimana: North, Subsection 5",
+      "dataLocation": [
+        -38.282352,
+        177.120819
+      ],
+      "name": "Waimana North - Ahirau 1 trench",
+      "bestEstimate": 2.99E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.24E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.23E-4,
+          "upperBound": 3.71E-4
+        },
+        {
+          "stdDev": 1.39E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 6.4E-5,
+          "upperBound": 6.2E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2090,
+      "sectionName": "Waipukaka, Subsection 1",
+      "dataLocation": [
+        -40.474026,
+        176.224701
+      ],
+      "name": "Waipukaka - Hendricksen Trench 1",
+      "bestEstimate": 2.58E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.32E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 4.8E-5,
+          "upperBound": 3.12E-4
+        },
+        {
+          "stdDev": 2.4450000000000003E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.9E-5,
+          "upperBound": 9.97E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2100,
+      "sectionName": "Wairarapa: 1, Subsection 2",
+      "dataLocation": [
+        -41.435307,
+        174.917267
+      ],
+      "name": "Wairarapa - Turakirae Head",
+      "bestEstimate": 3.77E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.1700000000000001E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 2.24E-4,
+          "upperBound": 4.58E-4
+        },
+        {
+          "stdDev": 1.2274999999999998E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.41E-4,
+          "upperBound": 6.32E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2100,
+      "sectionName": "Wairarapa: 1, Subsection 2",
+      "dataLocation": [
+        -41.41443,
+        174.9334
+      ],
+      "name": "Wairarapa - Lake Kohangapiripiri KP99-1\u00262",
+      "bestEstimate": 4.72E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.915E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 2.0E-4,
+          "upperBound": 5.83E-4
+        },
+        {
+          "stdDev": 2.1175000000000002E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.05E-4,
+          "upperBound": 9.52E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2109,
+      "sectionName": "Wairarapa: 3, Subsection 1",
+      "dataLocation": [
+        -40.939556,
+        175.535461
+      ],
+      "name": "Wairarapa 3 - Tea Creek Road",
+      "bestEstimate": 3.88E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.36E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 2.59E-4,
+          "upperBound": 5.31E-4
+        },
+        {
+          "stdDev": 1.5925E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.94E-4,
+          "upperBound": 8.31E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2123,
+      "sectionName": "Wairau, Subsection 5",
+      "dataLocation": [
+        -41.582134,
+        173.509796
+      ],
+      "name": "Wairau - Wadsworth Trench",
+      "bestEstimate": 9.09E-4,
+      "uncertainties": [
+        {
+          "stdDev": 3.7050000000000006E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 4.03E-4,
+          "upperBound": 0.001144
+        },
+        {
+          "stdDev": 4.16E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 2.16E-4,
+          "upperBound": 0.00188
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2123,
+      "sectionName": "Wairau, Subsection 5",
+      "dataLocation": [
+        -41.570991,
+        173.54332
+      ],
+      "name": "Wairau - Dillon Trench",
+      "bestEstimate": 5.07E-4,
+      "uncertainties": [
+        {
+          "stdDev": 2.0199999999999998E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 2.29E-4,
+          "upperBound": 6.33E-4
+        },
+        {
+          "stdDev": 2.2175E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.23E-4,
+          "upperBound": 0.00101
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2130,
+      "sectionName": "Wairau 2, Subsection 1",
+      "dataLocation": [
+        -41.375492,
+        174.208725
+      ],
+      "name": "Wairau 2 - Wairau seismic lines",
+      "bestEstimate": 4.07E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.0449999999999999E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 2.72E-4,
+          "upperBound": 4.81E-4
+        },
+        {
+          "stdDev": 1.0774999999999999E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.89E-4,
+          "upperBound": 6.2E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2204,
+      "sectionName": "Wellington Hutt Valley: 3, Subsection 1",
+      "dataLocation": [
+        -41.342838,
+        174.699692
+      ],
+      "name": "Wellington Hutt Valley 3 - Te Kopahou-1 Trenches",
+      "bestEstimate": 7.46E-4,
+      "uncertainties": [
+        {
+          "stdDev": 3.365E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.89E-4,
+          "upperBound": 8.62E-4
+        },
+        {
+          "stdDev": 4.0E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 8.1E-5,
+          "upperBound": 0.001681
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2208,
+      "sectionName": "Wellington Hutt Valley: 5, Subsection 0",
+      "dataLocation": [
+        -41.072926,
+        175.180313
+      ],
+      "name": "Wellington Hutt Valley 5 - KAF-1",
+      "bestEstimate": 8.09E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.8950000000000005E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 6.18E-4,
+          "upperBound": 9.97E-4
+        },
+        {
+          "stdDev": 2.0324999999999998E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 4.92E-4,
+          "upperBound": 0.001305
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2208,
+      "sectionName": "Wellington Hutt Valley: 5, Subsection 0",
+      "dataLocation": [
+        -41.073338,
+        175.178009
+      ],
+      "name": "Wellington Hutt Valley 5 - KAF-3",
+      "bestEstimate": 0.00108,
+      "uncertainties": [
+        {
+          "stdDev": 3.24E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 7.57E-4,
+          "upperBound": 0.001405
+        },
+        {
+          "stdDev": 3.6624999999999993E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 5.76E-4,
+          "upperBound": 0.002041
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2214,
+      "sectionName": "Wellington: Pahiatua, Subsection 4",
+      "dataLocation": [
+        -40.645985,
+        175.562729
+      ],
+      "name": "Wellington Pahiatua - Dougan-1",
+      "bestEstimate": 0.001101,
+      "uncertainties": [
+        {
+          "stdDev": 4.1099999999999996E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 5.45E-4,
+          "upperBound": 0.001367
+        },
+        {
+          "stdDev": 4.3599999999999997E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 3.14E-4,
+          "upperBound": 0.002058
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2211,
+      "sectionName": "Wellington: Pahiatua, Subsection 1",
+      "dataLocation": [
+        -40.491135,
+        175.684219
+      ],
+      "name": "Wellington Pahiatua - Hughes-1 Trench",
+      "bestEstimate": 9.75E-4,
+      "uncertainties": [
+        {
+          "stdDev": 3.2800000000000006E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 5.47E-4,
+          "upperBound": 0.001203
+        },
+        {
+          "stdDev": 3.455E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 3.4E-4,
+          "upperBound": 0.001722
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2214,
+      "sectionName": "Wellington: Pahiatua, Subsection 4",
+      "dataLocation": [
+        -40.647087,
+        175.56189
+      ],
+      "name": "Wellington Pahiatua - Dougan-2",
+      "bestEstimate": 0.001442,
+      "uncertainties": [
+        {
+          "stdDev": 5.434999999999999E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 7.11E-4,
+          "upperBound": 0.001798
+        },
+        {
+          "stdDev": 5.9275E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 3.95E-4,
+          "upperBound": 0.002766
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2246,
+      "sectionName": "Whakatane: North, Subsection 4",
+      "dataLocation": [
+        -38.137844,
+        177.014114
+      ],
+      "name": "Whakatane North - Te Whetu trench",
+      "bestEstimate": 1.11E-4,
+      "uncertainties": [
+        {
+          "stdDev": 3.7000000000000005E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 6.1E-5,
+          "upperBound": 1.35E-4
+        },
+        {
+          "stdDev": 3.9E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 3.8E-5,
+          "upperBound": 1.94E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2253,
+      "sectionName": "Whakatane: South, Subsection 4",
+      "dataLocation": [
+        -38.612709,
+        176.968338
+      ],
+      "name": "Whakatane South - Thalassa trench",
+      "bestEstimate": 3.54E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.25E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.81E-4,
+          "upperBound": 4.31E-4
+        },
+        {
+          "stdDev": 1.3125000000000002E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.06E-4,
+          "upperBound": 6.31E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 134,
+      "sectionName": "Awatere: Northeast 1, Subsection 7",
+      "dataLocation": [
+        -41.662071,
+        173.977676
+      ],
+      "name": "Awatere Northeast 1 - Combined Taylors Pass Road trenches and Lake Jasper cores",
+      "bestEstimate": 9.45E-4,
+      "uncertainties": [
+        {
+          "stdDev": 8.849999999999998E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 8.37E-4,
+          "upperBound": 0.001014
+        },
+        {
+          "stdDev": 1.0650000000000001E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 7.15E-4,
+          "upperBound": 0.001141
+        }
+      ]
+    },
+    {
+      "sectionIndex": 721,
+      "sectionName": "Hope: Conway, Subsection 2",
+      "dataLocation": [
+        -42.395164,
+        173.397201
+      ],
+      "name": "Hope Conway - Combined Greenburn East and West trenches",
+      "bestEstimate": 0.004226,
+      "uncertainties": [
+        {
+          "stdDev": 0.0011860000000000002,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.002989,
+          "upperBound": 0.005361
+        },
+        {
+          "stdDev": 0.0012672500000000001,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.002317,
+          "upperBound": 0.007386
+        }
+      ]
+    },
+    {
+      "sectionIndex": 739,
+      "sectionName": "Hope: Hope River, Subsection 2",
+      "dataLocation": [
+        -42.615269,
+        172.298904
+      ],
+      "name": "Hope Hope River - Hope Shelter trenches combined",
+      "bestEstimate": 0.003614,
+      "uncertainties": [
+        {
+          "stdDev": 0.0011545000000000001,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.002084,
+          "upperBound": 0.004393
+        },
+        {
+          "stdDev": 0.0012035,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.001315,
+          "upperBound": 0.006129
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2094,
+      "sectionName": "Waipukurau - Poukawa, Subsection 2",
+      "dataLocation": [
+        -39.896397,
+        176.609
+      ],
+      "name": "Poukawa - Combined Poukawa trenches",
+      "bestEstimate": 1.76E-4,
+      "uncertainties": [
+        {
+          "stdDev": 6.9E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 8.5E-5,
+          "upperBound": 2.23E-4
+        },
+        {
+          "stdDev": 7.749999999999999E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 4.8E-5,
+          "upperBound": 3.58E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2105,
+      "sectionName": "Wairarapa: 2, Subsection 1",
+      "dataLocation": [
+        -41.170505,
+        175.242767
+      ],
+      "name": "Wairarapa 2 - Cross Creek combined",
+      "bestEstimate": 7.34E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.65E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 5.61E-4,
+          "upperBound": 8.91E-4
+        },
+        {
+          "stdDev": 1.745E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 4.51E-4,
+          "upperBound": 0.001149
+        }
+      ]
+    },
+    {
+      "sectionIndex": 580,
+      "sectionName": "Flaxmore - Waimea - Tahunanui, Subsection 6",
+      "dataLocation": [
+        -41.388778,
+        173.152728
+      ],
+      "name": "Flaxmore - Waimea - Tahunanui_5507_Wairoa-2 trench",
+      "bestEstimate": 1.91E-4,
+      "uncertainties": [
+        {
+          "stdDev": 6.549999999999999E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.43E-4,
+          "upperBound": 2.74E-4
+        },
+        {
+          "stdDev": 8.774999999999999E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.1E-4,
+          "upperBound": 4.61E-4
+        }
+      ]
+    },
+    {
+      "sectionIndex": 593,
+      "sectionName": "Fox Peak, Subsection 1",
+      "dataLocation": [
+        -43.87232,
+        170.828035
+      ],
+      "name": "Fox Peak_4035_Trench 4",
+      "bestEstimate": 4.09E-4,
+      "uncertainties": [
+        {
+          "stdDev": 2.0899999999999998E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 2.41E-4,
+          "upperBound": 6.59E-4
+        },
+        {
+          "stdDev": 2.6475E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.05E-4,
+          "upperBound": 0.001164
+        }
+      ]
+    },
+    {
+      "sectionIndex": 722,
+      "sectionName": "Hope: Conway, Subsection 3",
+      "dataLocation": [
+        -42.425213,
+        173.292386
+      ],
+      "name": "Hope Conway_666-675_Combined",
+      "bestEstimate": 0.003762,
+      "uncertainties": [
+        {
+          "stdDev": 0.002339,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.00246,
+          "upperBound": 0.007138
+        },
+        {
+          "stdDev": 0.00619775,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.001839,
+          "upperBound": 0.02663
+        }
+      ]
+    },
+    {
+      "sectionIndex": 741,
+      "sectionName": "Hope: Hope River, Subsection 4",
+      "dataLocation": [
+        -42.686832,
+        172.056509
+      ],
+      "name": "Hope Hope River_648_Matagouri Flat",
+      "bestEstimate": 0.002422,
+      "uncertainties": [
+        {
+          "stdDev": 0.0014795,
+          "type": "ONE_SIGMA",
+          "lowerBound": 0.001574,
+          "upperBound": 0.004533
+        },
+        {
+          "stdDev": 0.0037177500000000006,
+          "type": "TWO_SIGMA",
+          "lowerBound": 0.001144,
+          "upperBound": 0.016015
+        }
+      ]
+    },
+    {
+      "sectionIndex": 1881,
+      "sectionName": "The Humps, Subsection 1",
+      "dataLocation": [
+        -42.61836,
+        173.077671
+      ],
+      "name": "The Humps_5565-5696_Combined",
+      "bestEstimate": 2.13E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.58E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.12E-4,
+          "upperBound": 4.28E-4
+        },
+        {
+          "stdDev": 3.6075E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 4.7E-5,
+          "upperBound": 0.00149
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2123,
+      "sectionName": "Wairau, Subsection 5",
+      "dataLocation": [
+        -41.588269,
+        173.486152
+      ],
+      "name": "Wairau_5519-5522_Combined Zinke",
+      "bestEstimate": 7.42E-4,
+      "uncertainties": [
+        {
+          "stdDev": 4.4649999999999996E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 4.9E-4,
+          "upperBound": 0.001383
+        },
+        {
+          "stdDev": 0.0011335,
+          "type": "TWO_SIGMA",
+          "lowerBound": 3.66E-4,
+          "upperBound": 0.0049
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2147,
+      "sectionName": "Waitawhiti, Subsection 1",
+      "dataLocation": [
+        -40.662689,
+        176.091516
+      ],
+      "name": "Waitawhiti_5369-5379_Combined",
+      "bestEstimate": 1.85E-4,
+      "uncertainties": [
+        {
+          "stdDev": 1.24E-4,
+          "type": "ONE_SIGMA",
+          "lowerBound": 1.11E-4,
+          "upperBound": 3.59E-4
+        },
+        {
+          "stdDev": 3.0625000000000004E-4,
+          "type": "TWO_SIGMA",
+          "lowerBound": 6.8E-5,
+          "upperBound": 0.001293
+        }
+      ]
+    },
+    {
+      "sectionIndex": 2322,
+      "sectionName": "Whitemans Valley, Subsection 2",
+      "dataLocation": [
+        -41.193101,
+        175.01553
+      ],
+      "name": "Whitemans Valley_1023_Whitemans Valley trench",
+      "bestEstimate": 5.0E-5,
+      "uncertainties": [
+        {
+          "stdDev": 3.3E-5,
+          "type": "ONE_SIGMA",
+          "lowerBound": 3.0E-5,
+          "upperBound": 9.6E-5
+        },
+        {
+          "stdDev": 7.874999999999999E-5,
+          "type": "TWO_SIGMA",
+          "lowerBound": 1.9E-5,
+          "upperBound": 3.34E-4
+        }
+      ]
+    }
+  ],
+  "paleoProbModel": {
+    "type": "scratch.UCERF3.utils.paleoRateConstraints.UCERF3_PaleoProbabilityModel",
+    "data": {
+      "xyz": {
+        "data": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0E-6,
+            8.0E-6,
+            1.2E-5,
+            1.4E-5,
+            1.6E-5,
+            1.8E-5,
+            1.9E-5,
+            2.0E-5,
+            2.0E-5,
+            2.1E-5
+          ],
+          [
+            0.0,
+            6.0E-6,
+            1.2E-5,
+            1.6E-5,
+            1.9E-5,
+            2.2E-5,
+            2.4E-5,
+            2.5E-5,
+            2.6E-5,
+            2.7E-5,
+            2.8E-5
+          ],
+          [
+            0.0,
+            9.0E-6,
+            1.7E-5,
+            2.3E-5,
+            2.8E-5,
+            3.2E-5,
+            3.4E-5,
+            3.6E-5,
+            3.8E-5,
+            3.9E-5,
+            4.0E-5
+          ],
+          [
+            0.0,
+            1.3E-5,
+            2.3E-5,
+            3.1E-5,
+            3.7E-5,
+            4.2E-5,
+            4.5E-5,
+            4.8E-5,
+            5.0E-5,
+            5.1E-5,
+            5.3E-5
+          ],
+          [
+            0.0,
+            2.5E-5,
+            4.4E-5,
+            5.9E-5,
+            7.0E-5,
+            7.8E-5,
+            8.4E-5,
+            8.9E-5,
+            9.3E-5,
+            9.6E-5,
+            9.8E-5
+          ],
+          [
+            0.0,
+            3.8E-5,
+            6.7E-5,
+            8.9E-5,
+            1.05E-4,
+            1.17E-4,
+            1.26E-4,
+            1.33E-4,
+            1.38E-4,
+            1.43E-4,
+            1.46E-4
+          ],
+          [
+            0.0,
+            6.2E-5,
+            1.09E-4,
+            1.43E-4,
+            1.67E-4,
+            1.85E-4,
+            1.99E-4,
+            2.09E-4,
+            2.18E-4,
+            2.25E-4,
+            2.3E-4
+          ],
+          [
+            0.0,
+            8.9E-5,
+            1.54E-4,
+            2.0E-4,
+            2.33E-4,
+            2.57E-4,
+            2.75E-4,
+            2.9E-4,
+            3.01E-4,
+            3.11E-4,
+            3.18E-4
+          ],
+          [
+            0.0,
+            1.6E-4,
+            2.73E-4,
+            3.52E-4,
+            4.07E-4,
+            4.47E-4,
+            4.78E-4,
+            5.03E-4,
+            5.23E-4,
+            5.39E-4,
+            5.51E-4
+          ],
+          [
+            0.0,
+            2.39E-4,
+            4.02E-4,
+            5.13E-4,
+            5.9E-4,
+            6.47E-4,
+            6.9E-4,
+            7.26E-4,
+            7.54E-4,
+            7.76E-4,
+            7.94E-4
+          ],
+          [
+            0.0,
+            4.16E-4,
+            6.9E-4,
+            8.74E-4,
+            0.001,
+            0.001093,
+            0.001166,
+            0.001224,
+            0.001271,
+            0.001308,
+            0.001337
+          ],
+          [
+            0.0,
+            6.12E-4,
+            0.001,
+            0.001256,
+            0.001432,
+            0.001562,
+            0.001662,
+            0.001744,
+            0.001809,
+            0.001861,
+            0.001901
+          ],
+          [
+            0.0,
+            0.001718,
+            0.002768,
+            0.003449,
+            0.003916,
+            0.004261,
+            0.004532,
+            0.004748,
+            0.004922,
+            0.00506,
+            0.005167
+          ],
+          [
+            0.0,
+            0.002934,
+            0.004667,
+            0.00577,
+            0.006526,
+            0.007086,
+            0.007524,
+            0.007875,
+            0.008158,
+            0.008382,
+            0.008553
+          ],
+          [
+            0.0,
+            0.008954,
+            0.01404,
+            0.017237,
+            0.019429,
+            0.021063,
+            0.022334,
+            0.023357,
+            0.024171,
+            0.024812,
+            0.025301
+          ],
+          [
+            0.0,
+            0.015546,
+            0.024046,
+            0.029346,
+            0.032961,
+            0.035642,
+            0.03776,
+            0.039433,
+            0.040766,
+            0.041811,
+            0.042605
+          ],
+          [
+            0.0,
+            0.020962,
+            0.03198,
+            0.038768,
+            0.043423,
+            0.046897,
+            0.049597,
+            0.051742,
+            0.053437,
+            0.054755,
+            0.055751
+          ],
+          [
+            0.0,
+            0.02678,
+            0.040365,
+            0.048671,
+            0.054331,
+            0.058566,
+            0.061858,
+            0.064463,
+            0.066493,
+            0.068053,
+            0.06923
+          ],
+          [
+            0.0,
+            0.033054,
+            0.049224,
+            0.058985,
+            0.065685,
+            0.070662,
+            0.074541,
+            0.077547,
+            0.079881,
+            0.081673,
+            0.083016
+          ],
+          [
+            0.0,
+            0.039792,
+            0.058497,
+            0.069717,
+            0.077429,
+            0.083189,
+            0.087578,
+            0.090975,
+            0.093605,
+            0.09561,
+            0.097098
+          ],
+          [
+            0.0,
+            0.046934,
+            0.06821,
+            0.08093,
+            0.089618,
+            0.096079,
+            0.100975,
+            0.104752,
+            0.107649,
+            0.109833,
+            0.111452
+          ],
+          [
+            0.0,
+            0.054514,
+            0.078401,
+            0.092495,
+            0.102251,
+            0.109321,
+            0.114729,
+            0.118856,
+            0.121964,
+            0.124289,
+            0.126008
+          ],
+          [
+            0.0,
+            0.062236,
+            0.088501,
+            0.104029,
+            0.114638,
+            0.122384,
+            0.128232,
+            0.132582,
+            0.135859,
+            0.138313,
+            0.14012
+          ],
+          [
+            0.0,
+            0.070387,
+            0.099086,
+            0.116013,
+            0.127412,
+            0.135799,
+            0.141946,
+            0.146547,
+            0.149969,
+            0.152524,
+            0.154389
+          ],
+          [
+            0.0,
+            0.101352,
+            0.141106,
+            0.16448,
+            0.18028,
+            0.191639,
+            0.199951,
+            0.206093,
+            0.210672,
+            0.214022,
+            0.216477
+          ],
+          [
+            0.0,
+            0.134128,
+            0.185005,
+            0.214713,
+            0.234855,
+            0.248991,
+            0.2593,
+            0.266875,
+            0.272444,
+            0.276524,
+            0.279494
+          ],
+          [
+            0.0,
+            0.174507,
+            0.238606,
+            0.275679,
+            0.300544,
+            0.317986,
+            0.330577,
+            0.33972,
+            0.346343,
+            0.351172,
+            0.354687
+          ],
+          [
+            0.0,
+            0.217214,
+            0.294323,
+            0.338845,
+            0.368069,
+            0.388637,
+            0.40332,
+            0.413711,
+            0.421246,
+            0.426756,
+            0.430743
+          ],
+          [
+            0.0,
+            0.243934,
+            0.327807,
+            0.376009,
+            0.407478,
+            0.429328,
+            0.444543,
+            0.455361,
+            0.463102,
+            0.468741,
+            0.472813
+          ],
+          [
+            0.0,
+            0.272115,
+            0.362615,
+            0.414162,
+            0.447724,
+            0.470513,
+            0.486285,
+            0.497377,
+            0.505294,
+            0.51103,
+            0.515149
+          ],
+          [
+            0.0,
+            0.294357,
+            0.389523,
+            0.442739,
+            0.477428,
+            0.500417,
+            0.516214,
+            0.5273,
+            0.535115,
+            0.540734,
+            0.544763
+          ],
+          [
+            0.0,
+            0.317456,
+            0.416813,
+            0.471965,
+            0.507232,
+            0.530527,
+            0.546398,
+            0.557301,
+            0.56502,
+            0.57052,
+            0.574444
+          ],
+          [
+            0.0,
+            0.349832,
+            0.455024,
+            0.513819,
+            0.550289,
+            0.574327,
+            0.590431,
+            0.601473,
+            0.60926,
+            0.6147,
+            0.618593
+          ],
+          [
+            0.0,
+            0.383014,
+            0.494381,
+            0.556055,
+            0.593921,
+            0.618499,
+            0.634829,
+            0.645899,
+            0.653568,
+            0.658943,
+            0.662767
+          ],
+          [
+            0.0,
+            0.42968,
+            0.551283,
+            0.617471,
+            0.657752,
+            0.683465,
+            0.700343,
+            0.711558,
+            0.719294,
+            0.724798,
+            0.72871
+          ],
+          [
+            0.0,
+            0.478606,
+            0.609825,
+            0.679982,
+            0.72244,
+            0.749105,
+            0.766111,
+            0.777551,
+            0.78533,
+            0.790838,
+            0.794759
+          ],
+          [
+            0.0,
+            0.51419,
+            0.64979,
+            0.721872,
+            0.764843,
+            0.79104,
+            0.807826,
+            0.818829,
+            0.826531,
+            0.831859,
+            0.835657
+          ],
+          [
+            0.0,
+            0.549913,
+            0.690248,
+            0.764098,
+            0.807297,
+            0.833067,
+            0.849358,
+            0.860237,
+            0.867657,
+            0.872877,
+            0.876576
+          ],
+          [
+            0.0,
+            0.571322,
+            0.712971,
+            0.786574,
+            0.828154,
+            0.852909,
+            0.868576,
+            0.878943,
+            0.885965,
+            0.890827,
+            0.894296
+          ],
+          [
+            0.0,
+            0.59332,
+            0.735999,
+            0.808984,
+            0.848959,
+            0.872713,
+            0.887746,
+            0.89743,
+            0.904056,
+            0.908703,
+            0.911981
+          ],
+          [
+            0.0,
+            0.611027,
+            0.753072,
+            0.824085,
+            0.862514,
+            0.885251,
+            0.899315,
+            0.908563,
+            0.914709,
+            0.919003,
+            0.92205
+          ],
+          [
+            0.0,
+            0.629132,
+            0.77021,
+            0.83907,
+            0.875822,
+            0.897459,
+            0.910884,
+            0.919398,
+            0.925211,
+            0.929266,
+            0.932114
+          ],
+          [
+            0.0,
+            0.64582,
+            0.786357,
+            0.85226,
+            0.887949,
+            0.908401,
+            0.92086,
+            0.929017,
+            0.934361,
+            0.93806,
+            0.940693
+          ],
+          [
+            0.0,
+            0.662319,
+            0.801767,
+            0.865423,
+            0.899505,
+            0.91896,
+            0.930922,
+            0.938274,
+            0.94329,
+            0.946778,
+            0.949239
+          ],
+          [
+            0.0,
+            0.68159,
+            0.819624,
+            0.881968,
+            0.914635,
+            0.933181,
+            0.94412,
+            0.951185,
+            0.955951,
+            0.959149,
+            0.961429
+          ],
+          [
+            0.0,
+            0.701299,
+            0.83727,
+            0.898013,
+            0.929463,
+            0.946939,
+            0.957396,
+            0.963981,
+            0.968304,
+            0.97128,
+            0.973408
+          ],
+          [
+            0.0,
+            0.71325,
+            0.845542,
+            0.90418,
+            0.933927,
+            0.950122,
+            0.959797,
+            0.965731,
+            0.969715,
+            0.972515,
+            0.974508
+          ],
+          [
+            0.0,
+            0.725321,
+            0.853471,
+            0.909719,
+            0.937783,
+            0.953092,
+            0.961803,
+            0.967384,
+            0.970994,
+            0.973518,
+            0.975361
+          ],
+          [
+            0.0,
+            0.73741,
+            0.861169,
+            0.915443,
+            0.941714,
+            0.955578,
+            0.963775,
+            0.968668,
+            0.972056,
+            0.974445,
+            0.976178
+          ],
+          [
+            0.0,
+            0.748147,
+            0.868626,
+            0.920235,
+            0.945097,
+            0.957939,
+            0.965205,
+            0.969897,
+            0.973092,
+            0.975357,
+            0.97699
+          ],
+          [
+            0.0,
+            0.758003,
+            0.875759,
+            0.925139,
+            0.947988,
+            0.959783,
+            0.966652,
+            0.971119,
+            0.974097,
+            0.976153,
+            0.977671
+          ],
+          [
+            0.0,
+            0.767458,
+            0.882881,
+            0.929657,
+            0.950769,
+            0.961548,
+            0.968116,
+            0.972143,
+            0.974891,
+            0.976861,
+            0.978301
+          ],
+          [
+            0.0,
+            0.776916,
+            0.88942,
+            0.933452,
+            0.952946,
+            0.963311,
+            0.969267,
+            0.973089,
+            0.975698,
+            0.977556,
+            0.978914
+          ],
+          [
+            0.0,
+            0.786289,
+            0.895702,
+            0.937218,
+            0.95513,
+            0.964794,
+            0.9704,
+            0.974008,
+            0.9765,
+            0.978271,
+            0.979551
+          ],
+          [
+            0.0,
+            0.795496,
+            0.901923,
+            0.940001,
+            0.957353,
+            0.966161,
+            0.971483,
+            0.974965,
+            0.977217,
+            0.978803,
+            0.979996
+          ],
+          [
+            0.0,
+            0.804721,
+            0.9072,
+            0.942835,
+            0.959015,
+            0.967494,
+            0.97263,
+            0.97563,
+            0.97773,
+            0.979261,
+            0.980404
+          ],
+          [
+            0.0,
+            0.813694,
+            0.912039,
+            0.945735,
+            0.96074,
+            0.968882,
+            0.973344,
+            0.976241,
+            0.97827,
+            0.979723,
+            0.980812
+          ],
+          [
+            0.0,
+            0.822887,
+            0.916178,
+            0.948056,
+            0.962438,
+            0.969851,
+            0.974075,
+            0.976849,
+            0.978774,
+            0.980174,
+            0.981214
+          ],
+          [
+            0.0,
+            0.831384,
+            0.919961,
+            0.950336,
+            0.964095,
+            0.970735,
+            0.974788,
+            0.977448,
+            0.979308,
+            0.98065,
+            0.98164
+          ],
+          [
+            0.0,
+            0.839834,
+            0.923798,
+            0.952562,
+            0.965178,
+            0.971617,
+            0.975505,
+            0.978083,
+            0.97978,
+            0.981,
+            0.981932
+          ],
+          [
+            0.0,
+            0.848248,
+            0.927312,
+            0.954916,
+            0.966326,
+            0.972485,
+            0.976265,
+            0.978515,
+            0.980112,
+            0.981297,
+            0.982198
+          ],
+          [
+            0.0,
+            0.855302,
+            0.930396,
+            0.956409,
+            0.967414,
+            0.973405,
+            0.976724,
+            0.978908,
+            0.980464,
+            0.981612,
+            0.982481
+          ],
+          [
+            0.0,
+            0.861747,
+            0.933526,
+            0.957918,
+            0.968545,
+            0.974031,
+            0.977193,
+            0.979325,
+            0.980826,
+            0.98192,
+            0.982753
+          ],
+          [
+            0.0,
+            0.867183,
+            0.936764,
+            0.959404,
+            0.969643,
+            0.974598,
+            0.97769,
+            0.979725,
+            0.981162,
+            0.982223,
+            0.983024
+          ],
+          [
+            0.0,
+            0.872362,
+            0.939327,
+            0.960906,
+            0.970339,
+            0.975198,
+            0.978154,
+            0.980123,
+            0.981519,
+            0.982543,
+            0.983312
+          ],
+          [
+            0.0,
+            0.877712,
+            0.941429,
+            0.962497,
+            0.971076,
+            0.975773,
+            0.978629,
+            0.980545,
+            0.981897,
+            0.982883,
+            0.983616
+          ],
+          [
+            0.0,
+            0.882575,
+            0.943596,
+            0.963471,
+            0.971855,
+            0.976345,
+            0.979131,
+            0.980992,
+            0.982209,
+            0.983082,
+            0.983773
+          ],
+          [
+            0.0,
+            0.887066,
+            0.945726,
+            0.964453,
+            0.972557,
+            0.97695,
+            0.979663,
+            0.981221,
+            0.982344,
+            0.983204,
+            0.983882
+          ],
+          [
+            0.0,
+            0.891674,
+            0.947983,
+            0.965493,
+            0.973301,
+            0.977591,
+            0.979874,
+            0.98138,
+            0.982487,
+            0.983332,
+            0.983997
+          ],
+          [
+            0.0,
+            0.896497,
+            0.949739,
+            0.96647,
+            0.974089,
+            0.977922,
+            0.980063,
+            0.981549,
+            0.982638,
+            0.983469,
+            0.98412
+          ]
+        ],
+        "ny": 71,
+        "nx": 11,
+        "minX": 0.0,
+        "maxX": 0.4999999999999999,
+        "minY": 5.5,
+        "maxY": 9.0,
+        "gridSpacingX": 0.04999999999999999,
+        "gridSpacingY": 0.04999999999999999
+      },
+      "dispMagFunc": {
+        "type": "org.opensha.commons.data.function.DiscretizedFunc",
+        "size": 71,
+        "minX": 0.333,
+        "maxX": 18.745,
+        "values": [
+          [
+            0.333,
+            5.5
+          ],
+          [
+            0.353,
+            5.55
+          ],
+          [
+            0.374,
+            5.6
+          ],
+          [
+            0.396,
+            5.65
+          ],
+          [
+            0.42,
+            5.7
+          ],
+          [
+            0.445,
+            5.75
+          ],
+          [
+            0.471,
+            5.8
+          ],
+          [
+            0.499,
+            5.85
+          ],
+          [
+            0.528,
+            5.9
+          ],
+          [
+            0.56,
+            5.95
+          ],
+          [
+            0.593,
+            6.0
+          ],
+          [
+            0.628,
+            6.05
+          ],
+          [
+            0.665,
+            6.1
+          ],
+          [
+            0.704,
+            6.15
+          ],
+          [
+            0.746,
+            6.2
+          ],
+          [
+            0.79,
+            6.25
+          ],
+          [
+            0.837,
+            6.3
+          ],
+          [
+            0.887,
+            6.35
+          ],
+          [
+            0.939,
+            6.4
+          ],
+          [
+            0.995,
+            6.45
+          ],
+          [
+            1.054,
+            6.5
+          ],
+          [
+            1.117,
+            6.55
+          ],
+          [
+            1.183,
+            6.6
+          ],
+          [
+            1.253,
+            6.65
+          ],
+          [
+            1.327,
+            6.7
+          ],
+          [
+            1.406,
+            6.75
+          ],
+          [
+            1.489,
+            6.8
+          ],
+          [
+            1.577,
+            6.85
+          ],
+          [
+            1.671,
+            6.9
+          ],
+          [
+            1.77,
+            6.95
+          ],
+          [
+            1.874,
+            7.0
+          ],
+          [
+            1.986,
+            7.05
+          ],
+          [
+            2.103,
+            7.1
+          ],
+          [
+            2.228,
+            7.15
+          ],
+          [
+            2.36,
+            7.2
+          ],
+          [
+            2.5,
+            7.25
+          ],
+          [
+            2.648,
+            7.3
+          ],
+          [
+            2.805,
+            7.35
+          ],
+          [
+            2.971,
+            7.4
+          ],
+          [
+            3.147,
+            7.45
+          ],
+          [
+            3.333,
+            7.5
+          ],
+          [
+            3.531,
+            7.55
+          ],
+          [
+            3.74,
+            7.6
+          ],
+          [
+            3.962,
+            7.65
+          ],
+          [
+            4.196,
+            7.7
+          ],
+          [
+            4.445,
+            7.75
+          ],
+          [
+            4.708,
+            7.8
+          ],
+          [
+            4.987,
+            7.85
+          ],
+          [
+            5.283,
+            7.9
+          ],
+          [
+            5.596,
+            7.95
+          ],
+          [
+            5.928,
+            8.0
+          ],
+          [
+            6.279,
+            8.05
+          ],
+          [
+            6.651,
+            8.1
+          ],
+          [
+            7.045,
+            8.15
+          ],
+          [
+            7.462,
+            8.2
+          ],
+          [
+            7.905,
+            8.25
+          ],
+          [
+            8.373,
+            8.3
+          ],
+          [
+            8.869,
+            8.35
+          ],
+          [
+            9.395,
+            8.4
+          ],
+          [
+            9.951,
+            8.45
+          ],
+          [
+            10.541,
+            8.5
+          ],
+          [
+            11.166,
+            8.55
+          ],
+          [
+            11.827,
+            8.6
+          ],
+          [
+            12.528,
+            8.65
+          ],
+          [
+            13.27,
+            8.7
+          ],
+          [
+            14.057,
+            8.75
+          ],
+          [
+            14.889,
+            8.8
+          ],
+          [
+            15.772,
+            8.85
+          ],
+          [
+            16.706,
+            8.9
+          ],
+          [
+            17.696,
+            8.95
+          ],
+          [
+            18.745,
+            9.0
+          ]
+        ]
+      }
+    }
+  },
+  "prevAppliedRateUncertainty": false
+}

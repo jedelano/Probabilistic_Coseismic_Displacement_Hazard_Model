@@ -1,0 +1,7 @@
+import stl "H:\cfm_leapfrog-main\docs\tutorials\Wellington_alternative_geometry\meshes_CFM\Pukerua-ShepherdsGullycombined.stl" feature_angle 135 no_merge
+delete mesh surface 1 propagate
+surface 1 scheme triadvance
+surface 1 size 2000
+mesh surface 1
+export stl ascii "H:\cfm_leapfrog-main\docs\tutorials\Wellington_alternative_geometry\meshes_CFM\Pukerua-ShepherdsGullycombined_remeshed.stl" surface 1 mesh overwrite
+exit

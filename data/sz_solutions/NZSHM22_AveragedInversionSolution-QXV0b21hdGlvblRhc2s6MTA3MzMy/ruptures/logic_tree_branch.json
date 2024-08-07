@@ -1,0 +1,167 @@
+{
+  "origWeight": 0.0,
+  "values": [
+    {
+      "level": {
+        "name": "Fault Model",
+        "shortName": "Fault Model",
+        "enumClass": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_FaultModels"
+      }
+    },
+    {
+      "level": {
+        "name": "Fault Regime",
+        "shortName": "Fault Regime",
+        "enumClass": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.FaultRegime"
+      },
+      "value": {
+        "name": "Fault Regime",
+        "shortName": "Fault Regime",
+        "weight": 0.0,
+        "enumClass": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.FaultRegime",
+        "enumName": "SUBDUCTION"
+      }
+    },
+    {
+      "level": {
+        "name": "NZSHM22_SpatialSeisPDF",
+        "shortName": "NZSHM22_SpatialSeisPDF",
+        "enumClass": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_SpatialSeisPDF"
+      },
+      "value": {
+        "name": "NZSHM22_1346",
+        "shortName": "1346",
+        "prefix": "",
+        "weight": 0.0,
+        "enumClass": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_SpatialSeisPDF",
+        "enumName": "NZSHM22_1346"
+      }
+    },
+    {
+      "level": {
+        "name": "Slip Along Rupture Model (Dsr)",
+        "shortName": "Dsr",
+        "enumClass": "scratch.UCERF3.enumTreeBranches.SlipAlongRuptureModels",
+        "affects": [
+          "rates.csv"
+        ],
+        "doesNotAffect": [
+          "fault_sections.geojson",
+          "indices.csv",
+          "properties.csv"
+        ]
+      },
+      "value": {
+        "name": "Uniform",
+        "shortName": "Uni",
+        "prefix": "DsrUni",
+        "weight": 0.5,
+        "enumClass": "scratch.UCERF3.enumTreeBranches.SlipAlongRuptureModels",
+        "enumName": "UNIFORM"
+      }
+    },
+    {
+      "level": {
+        "name": "Inversion Model",
+        "shortName": "IM",
+        "enumClass": "scratch.UCERF3.enumTreeBranches.InversionModels",
+        "affects": [
+          "rates.csv"
+        ],
+        "doesNotAffect": [
+          "fault_sections.geojson",
+          "indices.csv",
+          "properties.csv"
+        ]
+      },
+      "value": {
+        "name": "Characteristic (Constrained)",
+        "shortName": "CharConst",
+        "prefix": "CharConst",
+        "weight": 1.0,
+        "enumClass": "scratch.UCERF3.enumTreeBranches.InversionModels",
+        "enumName": "CHAR_CONSTRAINED"
+      }
+    },
+    {
+      "level": {
+        "name": "NZSHM22_ScalingRelationship",
+        "shortName": "NZSHM22_ScalingRelationship",
+        "class": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_ScalingRelationshipNode$Level"
+      },
+      "value": {
+        "name": "NZSHM22_ScalingRelationship",
+        "shortName": "NZSHM22_ScalingRelationship",
+        "weight": 0.0,
+        "adapterValue": {
+          "adapterClass": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_ScalingRelationshipNode$Adapter",
+          "adapterData": {
+            "scale": {
+              "adapterClass": "nz.cri.gns.NZSHM22.opensha.calc.SimplifiedScalingRelationship$Adapter",
+              "adapterData": {
+                "regime": "SUBDUCTION",
+                "cValue": 4.0,
+                "strikeSlipCValue": 0.0
+              }
+            },
+            "recalc": true
+          }
+        }
+      }
+    },
+    {
+      "level": {
+        "name": "NZSHM22_FaultPolyParameters",
+        "shortName": "NZSHM22_FaultPolyParameters",
+        "class": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_FaultPolyParameters$Level"
+      },
+      "value": {
+        "name": "NZSHM22_FaultPolyParameters",
+        "shortName": "NZSHM22_FaultPolyParameters",
+        "weight": 0.0,
+        "adapterValue": {
+          "adapterClass": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_FaultPolyParameters$Adapter",
+          "adapterData": {
+            "bufferSize": 12.0,
+            "minBufferSize": 0.0
+          }
+        }
+      }
+    },
+    {
+      "level": {
+        "name": "NZSHM22_MagBounds",
+        "shortName": "NZSHM22_MagBounds",
+        "class": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_MagBounds$Level"
+      }
+    },
+    {
+      "level": {
+        "name": "NZSHM22_SlipRateFactors",
+        "shortName": "NZSHM22_SlipRateFactors",
+        "class": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_SlipRateFactors$Level"
+      }
+    },
+    {
+      "level": {
+        "name": "NZSHM22_Regions",
+        "shortName": "NZSHM22_Regions",
+        "class": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_Regions$Level"
+      }
+    },
+    {
+      "level": {
+        "name": "NZSHM22_DeformationModel",
+        "shortName": "NZSHM22_DeformationModel",
+        "enumClass": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_DeformationModel"
+      },
+      "value": {
+        "name": "SBD_0_2A_HKR_MMIN7PT5_EXP_LTP2B",
+        "shortName": "SBD_0_2A_HKR_MMIN7PT5_EXP_LTP2B",
+        "weight": 0.0,
+        "enumClass": "nz.cri.gns.NZSHM22.opensha.enumTreeBranches.NZSHM22_DeformationModel",
+        "enumName": "SBD_0_2A_HKR_MMIN7PT5_EXP_LTP2B"
+      }
+    }
+  ]
+}
