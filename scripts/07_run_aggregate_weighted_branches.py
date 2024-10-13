@@ -222,7 +222,7 @@ if make_colorful_hazcurves:
                                                skipped_sites=skipped_sites)
     if show_time_dependence is True:
         if single_fault_type =="crustal":
-            unique_id_keyphrase_list = ["_TD_", "_TI"]
+            unique_id_keyphrase_list = ["_TD_", "_TI_"]
         plot_weighted_mean_haz_curves_colorful(weighted_mean_PPE_dictionary=weighted_mean_PPE_dict,
                                                PPE_dictionary=PPE_dict,
                                                exceed_type_list=exceed_type_list,
