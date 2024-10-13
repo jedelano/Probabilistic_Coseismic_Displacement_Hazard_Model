@@ -8,14 +8,15 @@ import os
 from pcdhm.shared_helper import check_triangle_normal
 
 #### USER INPUT #####
+# specify in the mesh version string if the dip angle has been modified e.g. "_multi50_steeperdip" or "_gentlerdip"
 sz_mesh_version  = "_multi50"
-out_files_directory = "mesh_gf_outfiles"
+out_files_directory = "mesh_gf_outfiles_r1"
 
 # this can be any working branch, should be the same for all.
 NSHM_directory = "NZSHM22_AveragedInversionSolution-QXV0b21hdGlvblRhc2s6MTA3MzMx"
 
 # Sensitivity testing for subduction interface depth
-steeper_dip = False
+steeper_dip = True
 gentler_dip = False
 
 # De-blobify outputs
@@ -25,10 +26,6 @@ deblobify = True
 if steeper_dip and gentler_dip:
     print("Dip modifications are wrong. Only one statement can be True at once. Try again.")
     exit()
-elif steeper_dip:
-    sz_mesh_version += "_steeperdip"
-elif gentler_dip:
-    sz_mesh_version += "_gentlerdip"
 
 # make outfiles directory if it doesn't already exist
 if not os.path.exists(f"../{out_files_directory}"):

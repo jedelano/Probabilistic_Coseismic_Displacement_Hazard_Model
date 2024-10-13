@@ -9,52 +9,56 @@ from pcdhm.shared_helper import \
     make_branch_weight_dict
 import pickle as pkl
 
-## this script takes the displcements and probabilities from each fault model branch and aggregates them into a
-# weighed mean. It then plots the hazard curves/probability figures.
+"""this script takes the displcements and probabilities from each fault model branch and aggregates them into a
+weighed mean. It then plots the hazard curves/probability figures.
 
-# you can run this script for a single fault model or a paired crustal and subduction model. The paired model takes
-# the individual branch results and combines them, effectively creating n = X crustal * Y subduction new branches.
+you can run this script for a single fault model or a paired crustal and subduction model. The paired model takes
+the individual branch results and combines them, effectively creating n = X crustal * Y subduction new branches."""
 
 #### USER INPUTS   #####
 
 # set up file directories
-results_directory = "results"
+results_directory = 'results_r1'
 # Optional; something to tack on to the end of the aggregated PPE dictionary so you don't overwrite files
-outfile_extension = ""
+outfile_extension = ''
 
 # choose fault type and model versions
 slip_taper = False                           # True or False, only matters if crustal. Defaults to False for sz.
 
 # Run PPE or figures for a single fault model or a paired crustal/subduction model?
-paired_crustal_sz = True                  # True: combined sz and crustal; False: uses [single] fault type
-single_fault_type = "sz"                       # "crustal or "sz"; only matters for single fault model
-crustal_model_version = "_Model2"           # "_Model1", "_Model2", or "_CFM"
-sz_model_version = "_multi50"                    # must match suffix in the subduction directory with gfs
+paired_crustal_sz = False                  # True: combined sz and crustal; False: uses [single] fault type
+single_fault_type = 'crustal'                       # "crustal or "sz"; only matters for single fault model
+
+# "_Model1", "_Model2", or "_CFM" for crustal; must match results subdirectory suffix
+crustal_model_version = "_CFM"
+sz_model_version = "_multi50_steeperdip"
 
 # Do you want to calculate PPEs (probabilities) and weighted mean PPE for the fault model?
 # True: Only has to be done once because it is saved in a pickle file
 # False: uses saved pickle file; saves time
-calculate_fault_model_PPE = True               # calculate poissonian probabilities of exceedance
+calculate_fault_model_PPE = False               # calculate poissonian probabilities of exceedance
 
 # choose which figures to make
 figure_file_type_list = ["png", "pdf"]             # file types for figures
-probability_plot = True                         # plots the prob at the 0.2 m uplift and subsidence thresholds
-displacement_chart = True                       # plots disp at the 10% and 2% probability of exceedance
-make_hazcurves = True                               # plots all branches and weight mean haz curves
-make_colorful_hazcurves = False                     # plots branches colored by unique_id_keyphrase_list
+probability_plot = False                         # plots the prob at the 0.2 m uplift and subsidence thresholds
+displacement_chart = False                       # plots disp at the 10% and 2% probability of exceedance
+make_hazcurves = False                               # plots all branches and weight mean haz curves
+make_colorful_hazcurves = True                     # plots branches colored by unique_id_keyphrase_list
 make_map = False                                     # displacements on the left, map on the right
 
 # sites to omit from plots
 skipped_sites = ["Porirua CBD south"]       # ["site1", "site2", "site3"]
 
 # identify which branches are colored for "colorful haz curves"
-# both can be true, it just makes two different figures.
+# more than one can be true, it just makes multiple different figures.
 # only matters if make_colorful_hazcurves is True
 show_b_n_variation = True                   # magnitude-frequency distribution
 show_s_value_variation = True               # non-stationary moment rate scaling
 show_def_model_variation = True            # deformation model
+show_time_dependence = True                # time dependent or time independent
 
-exceed_type_list = ["up", "down", "total_abs"] # "up", "down", "total_abs"
+#choose which version of the figures to make
+exceed_type_list = ["down"] # e.g. ["up", "down", "total_abs"]
 
 ########## script ############################################
 # get branch weights from the saved Excel spreadsheet
@@ -181,7 +185,7 @@ if make_colorful_hazcurves:
             unique_id_keyphrase_list = ["N27", "N46"]
         plot_weighted_mean_haz_curves_colorful(weighted_mean_PPE_dictionary=weighted_mean_PPE_dict,
                                                PPE_dictionary=PPE_dict,
-                                               exceed_type_list=["down"],
+                                               exceed_type_list=exceed_type_list,
                                                model_version_title=model_version_title,
                                                out_directory=model_version_results_directory,
                                                file_type_list=figure_file_type_list,
@@ -196,7 +200,7 @@ if make_colorful_hazcurves:
             unique_id_keyphrase_list = ["S066", "S141"]
         plot_weighted_mean_haz_curves_colorful(weighted_mean_PPE_dictionary=weighted_mean_PPE_dict,
                                                PPE_dictionary=PPE_dict,
-                                               exceed_type_list=["down"],
+                                               exceed_type_list=exceed_type_list,
                                                model_version_title=model_version_title,
                                                out_directory=model_version_results_directory,
                                                file_type_list=figure_file_type_list,
@@ -208,12 +212,25 @@ if make_colorful_hazcurves:
             unique_id_keyphrase_list = ["geologic", "geodetic"]
         plot_weighted_mean_haz_curves_colorful(weighted_mean_PPE_dictionary=weighted_mean_PPE_dict,
                                                PPE_dictionary=PPE_dict,
-                                               exceed_type_list=["down"],
+                                               exceed_type_list=exceed_type_list,
                                                model_version_title=model_version_title,
                                                out_directory=model_version_results_directory,
                                                file_type_list=figure_file_type_list,
                                                slip_taper=slip_taper,
                                                file_name=f"def_model_branches{fault_model_version}",
+                                               string_list=unique_id_keyphrase_list,
+                                               skipped_sites=skipped_sites)
+    if show_time_dependence is True:
+        if single_fault_type =="crustal":
+            unique_id_keyphrase_list = ["_TD_", "_TI"]
+        plot_weighted_mean_haz_curves_colorful(weighted_mean_PPE_dictionary=weighted_mean_PPE_dict,
+                                               PPE_dictionary=PPE_dict,
+                                               exceed_type_list=exceed_type_list,
+                                               model_version_title=model_version_title,
+                                               out_directory=model_version_results_directory,
+                                               file_type_list=figure_file_type_list,
+                                               slip_taper=slip_taper,
+                                               file_name=f"time_dependence_branches{fault_model_version}",
                                                string_list=unique_id_keyphrase_list,
                                                skipped_sites=skipped_sites)
 

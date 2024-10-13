@@ -9,10 +9,10 @@ from pcdhm.probabalistic_displacement import get_site_disp_dict, get_cumu_PPE, p
 
 ##### USER INPUTS   #####
 # must run crustal and subduction lists/loops separately
-results_directory = "results"
+results_directory = "results_r1"
 
 slip_taper = False                    # True or False, only matters if crustal otherwise it defaults to false later.
-fault_type = "crustal"                  # "crustal or "sz"
+fault_type = "sz"                  # "crustal or "sz"
 
 # How many branches do you want to run?
 # True: picks the most central branch (i.e. geologic, time independent, mid b and N). Saves time, useful for
@@ -26,10 +26,10 @@ single_branch = False
 specific_rupture_ids = False
 
 # can only run one type of GF and fault geometry at a time
-gf_name = "sites"                         # "sites" or "grid" or "coastal"
-crustal_mesh_version = "_Model2"         # "_Model1", "_Model2", or "_CFM"
-sz_mesh_version = "_multi50"           # must match suffix in the subduction directory
-out_files_directory = "mesh_gf_outfiles"
+gf_name = "sites"                               # "sites" or "grid" or "coastal"
+crustal_mesh_version = "_CFM"           # e.g.,  "_Model1", "_Model2", or "_CFM"
+sz_mesh_version = "_multi50_steeperdip"                    # must match suffix in the subduction directory
+out_files_directory = "mesh_gf_outfiles_r1"     # used for grabbing geojsons
 
 # Can run more than one type of deformation model at a time (only matters for crustal)
 deformation_model = "geologic and geodetic"          # "geologic" or "geodetic" or "geologic and geodetic"
@@ -50,13 +50,12 @@ calculate_probabilities = True
 file_type_list = ["png"]               # e.g. ["png", "pdf"] or ["png"]
 skipped_sites = ["Porirua CBD south"]       # ["site1", "site2", "site3"]
 # Scenario displacement maps
-# True: makes displacement map figures of a sample of rupture scenarios
+# True: makes displacement map figures of a sample of rupture scenarios. Mostly useful for grid gfs.
 # False: skips making displacement map figures
-make_scenario_displacement_maps = True
+make_scenario_displacement_maps = False
 
-# probability figures
 # True: uses saved dictionaries to make probability and displacement figures for each branch
-# False: skips making probability and displacement figures
+# False: skips making probability and displacement figures for each branch
 make_branch_probability_figures = False
 
 ################ script ###################
@@ -182,7 +181,7 @@ if make_scenario_displacement_maps is True:
         if fault_type == "sz":
             ids = [948, 3043, 4365, 4977]
             for id in ids:
-                if id in ids: target_rupture_ids.append(id)
+                if id in rupture_id: target_rupture_ids.append(id)
         elif fault_type == "crustal":
             ids = [20890, 96084, 97010, 166970, 305270, 368024, 375389, 401491]
             for id in ids:

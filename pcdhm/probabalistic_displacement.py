@@ -126,7 +126,7 @@ def get_cumu_PPE(slip_taper, model_version_results_directory, branch_site_disp_d
         # average number of events per time interval (effectively R*T from Ned's guide)
         lambdas = investigation_time * np.array(scaled_rates)
 
-        # Generate n_samples of possible earthquake ruptures for random 100 year intervals
+        # Generate n_samples of possible earthquake ruptures for random 100 year intervals (or investigation time interval)
         # returns boolean array where 0 means "no event" and 1 means "event". rows = 100 yr window, columns = earthquake
         # rupture
         scenarios = rng.poisson(lambdas, size=(n_samples, lambdas.size))
@@ -139,8 +139,16 @@ def get_cumu_PPE(slip_taper, model_version_results_directory, branch_site_disp_d
         disp_scenarios = scenarios * site_dict_i["disps"]
         # multiplies displacement by the uncertainty multiplier
         disp_scenarios = disp_scenarios * disp_uncertainty
-        # sum all displacement values at that site in that 100 yr interval
-        cumulative_disp_scenarios = disp_scenarios.sum(axis=1)
+        # sum all displacement values at that site in that 100 yr interval.
+        # End up with n-intervals-sized array, with cumulative displacement at that site.
+        cumulative_disp_scenarios_total_abs = np.abs(disp_scenarios).sum(axis=1)
+
+        # replace all negative values in disp_scenarios with 0
+        disp_scenarios_up = np.where(disp_scenarios > 0, disp_scenarios, 0)
+        cumulative_disp_scenarios_up = disp_scenarios_up.sum(axis=1)
+        # replace all positive values in disp_scenarios with 0
+        disp_scenarios_down = np.where(disp_scenarios < 0, disp_scenarios, 0)
+        cumulative_disp_scenarios_down = disp_scenarios_down.sum(axis=1)
 
         # get displacement thresholds for calculating exceedance (hazard curve x axis)
         thresholds = np.arange(0, 3, 0.01)
@@ -155,10 +163,11 @@ def get_cumu_PPE(slip_taper, model_version_results_directory, branch_site_disp_d
             # across all of the 100 yr scenarios
 
             # sums the absolute value of the disps if the abs value is greater than threshold. e.g., -0.5 + 0.5 = 1
-            n_exceedances_total_abs[thresholds == threshold] = (np.abs(cumulative_disp_scenarios) > threshold).sum()
-            n_exceedances_up[thresholds == threshold] = (cumulative_disp_scenarios > threshold).sum()
+            n_exceedances_total_abs[thresholds == threshold] = (
+                        np.abs(cumulative_disp_scenarios_total_abs) > threshold).sum()
+            n_exceedances_up[thresholds == threshold] = (cumulative_disp_scenarios_up > threshold).sum()
         for threshold in thresholds_neg:
-            n_exceedances_down[thresholds_neg == threshold] = (cumulative_disp_scenarios < threshold).sum()
+            n_exceedances_down[thresholds_neg == threshold] = (cumulative_disp_scenarios_down < threshold).sum()
 
         # the probability is the number of times that threshold was exceeded divided by the number of samples. so,
         # quite high for low displacements (e.g. 25%). Means there's a ~25% change an earthquake will
