@@ -6,18 +6,17 @@ from pcdhm.compare_fault_model import compare_faultmodel_prob_plot, compare_disp
     compare_disps_with_net
 
 ########## USER INPUTS #######################
-plot_order_name = "12 sites"                 # "12 sites" or "pared" or "porirua"
-results_directory = "results"
+plot_order_name = "porirua"                 # "12 sites" or "pared" or "porirua"
+results_directory = "results_r1"
 exceed_type = "down"                     # "down", "up", or "total_abs"
 slip_taper = False
 
 # Choose what models to compare. These names should be in the results folder already.
-model_subdirectory_names = ["crustal_Model2", "sz_multi50"]
-#model_subdirectory_names = ["crustal_CFM","crustal_Model1", "crustal_Model2"]
+model_subdirectory_names = ['crustal_CFM', 'crustal_Model1', 'crustal_Model2']
+#model_subdirectory_names = ['sz_multi50', 'sz_multi50_steeperdip', 'sz_multi50_gentlerdip']
 
 # used for plot labels/titles. must be in same order as model_subdirectory_names
-pretty_names = ["crustal_Model2", "sz_multi50"]
-#pretty_names = ["crustal_CFM", "crustal_Model1", "crustal_Model2"]
+pretty_names = model_subdirectory_names
 
 file_type_list = ["png", "pdf"]     # generally png and/or pdf
 probability_plot = True             # plots the probability of exceedance at the 0.2 m uplift and subsidence thresholds

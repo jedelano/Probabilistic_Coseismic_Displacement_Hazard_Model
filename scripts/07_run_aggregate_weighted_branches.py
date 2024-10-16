@@ -16,7 +16,6 @@ you can run this script for a single fault model or a paired crustal and subduct
 the individual branch results and combines them, effectively creating n = X crustal * Y subduction new branches."""
 
 #### USER INPUTS   #####
-
 # set up file directories
 results_directory = 'results_r1'
 # Optional; something to tack on to the end of the aggregated PPE dictionary so you don't overwrite files
@@ -27,16 +26,16 @@ slip_taper = False                           # True or False, only matters if cr
 
 # Run PPE or figures for a single fault model or a paired crustal/subduction model?
 paired_crustal_sz = False                  # True: combined sz and crustal; False: uses [single] fault type
-single_fault_type = 'crustal'                       # "crustal or "sz"; only matters for single fault model
+single_fault_type = 'sz'                       # "crustal or "sz"; only matters for single fault model
 
 # "_Model1", "_Model2", or "_CFM" for crustal; must match results subdirectory suffix
 crustal_model_version = "_CFM"
-sz_model_version = "_multi50_steeperdip"
+sz_model_version = "_multi50_gentlerdip"
 
 # Do you want to calculate PPEs (probabilities) and weighted mean PPE for the fault model?
 # True: Only has to be done once because it is saved in a pickle file
 # False: uses saved pickle file; saves time
-calculate_fault_model_PPE = False               # calculate poissonian probabilities of exceedance
+calculate_fault_model_PPE = True               # calculate poissonian probabilities of exceedance
 
 # choose which figures to make
 figure_file_type_list = ["png", "pdf"]             # file types for figures

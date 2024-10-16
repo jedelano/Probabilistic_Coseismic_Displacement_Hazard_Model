@@ -19,7 +19,7 @@ fault_type = "sz"                  # "crustal or "sz"
 # generating displacement maps for scenarios (e.g., gf_type=grid) or troubleshooting.
 # False: runs all branches in a fault model. All branches are needed for '07_run_aggregate_weighted_branches.py'.
 # False is most useful for gf_name = "sites"
-single_branch = False
+single_branch = True
 
 # True: Use the predefined subset of rupture IDs
 # False: Make a random sample of rupture IDs + the predefined subset
@@ -28,7 +28,7 @@ specific_rupture_ids = False
 # can only run one type of GF and fault geometry at a time
 gf_name = "sites"                               # "sites" or "grid" or "coastal"
 crustal_mesh_version = "_CFM"           # e.g.,  "_Model1", "_Model2", or "_CFM"
-sz_mesh_version = "_multi50_steeperdip"                    # must match suffix in the subduction directory
+sz_mesh_version = "_multi50"                    # must match suffix in the subduction directory
 out_files_directory = "mesh_gf_outfiles_r1"     # used for grabbing geojsons
 
 # Can run more than one type of deformation model at a time (only matters for crustal)
@@ -40,14 +40,14 @@ time_independent = True     # True or False
 
 # True: calculates displacements at the greens function type/locations for all ruptures
 # False: skips calculating displacements(assumed it's already calculated and saved all_rupture_disps pickle file)
-calculate_displacements = True
+calculate_displacements = False
 
 # True: calculates PPE dictionaries for the "sites" only gf_name; saves to "cumu_exceed_prob_{extension1}.pkl"
 # False: skips calculating PPE dictionaries; uses saved file for plotting
-calculate_probabilities = True
+calculate_probabilities = False
 
 # making figures
-file_type_list = ["png"]               # e.g. ["png", "pdf"] or ["png"]
+file_type_list = ["png", "pdf"]               # e.g. ["png", "pdf"] or ["png"]
 skipped_sites = ["Porirua CBD south"]       # ["site1", "site2", "site3"]
 # Scenario displacement maps
 # True: makes displacement map figures of a sample of rupture scenarios. Mostly useful for grid gfs.
@@ -56,7 +56,7 @@ make_scenario_displacement_maps = False
 
 # True: uses saved dictionaries to make probability and displacement figures for each branch
 # False: skips making probability and displacement figures for each branch
-make_branch_probability_figures = False
+make_branch_probability_figures = True
 
 ################ script ###################
 # this makes figure fonts editable in Illustrator

@@ -24,7 +24,7 @@ def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outf
     #orange, teal, purple
     colors = [(235 / 255, 97 / 255, 35 / 255), (64 / 255, 176 / 255, 166 / 255), (116 / 255, 43 / 255, 140 / 255)]
     point_sizes = [35, 30, 30]
-    point_shapes = ["^", "o", "s"]
+    point_shapes = ["o", "^", "s"]
 
     # set up figure and subplots
     fig, axs = plt.subplots(1, 2, figsize=(7, 3.5))
