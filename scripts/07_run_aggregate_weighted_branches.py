@@ -22,14 +22,14 @@ results_directory = 'results_r1'
 outfile_extension = ''
 
 # choose fault type and model versions
-slip_taper = False                           # True or False, only matters if crustal. Defaults to False for sz.
+slip_taper = True                           # True or False, only matters if crustal. Defaults to False for sz.
 
 # Run PPE or figures for a single fault model or a paired crustal/subduction model?
 paired_crustal_sz = False                  # True: combined sz and crustal; False: uses [single] fault type
-single_fault_type = 'sz'                       # "crustal or "sz"; only matters for single fault model
+single_fault_type = 'crustal'                       # "crustal or "sz"; only matters for single fault model
 
 # "_Model1", "_Model2", or "_CFM" for crustal; must match results subdirectory suffix
-crustal_model_version = "_CFM"
+crustal_model_version = "_CFM_tapered"
 sz_model_version = "_multi50_gentlerdip"
 
 # Do you want to calculate PPEs (probabilities) and weighted mean PPE for the fault model?
@@ -42,7 +42,7 @@ figure_file_type_list = ["png", "pdf"]             # file types for figures
 probability_plot = False                         # plots the prob at the 0.2 m uplift and subsidence thresholds
 displacement_chart = False                       # plots disp at the 10% and 2% probability of exceedance
 make_hazcurves = False                               # plots all branches and weight mean haz curves
-make_colorful_hazcurves = True                     # plots branches colored by unique_id_keyphrase_list
+make_colorful_hazcurves = False                     # plots branches colored by unique_id_keyphrase_list
 make_map = False                                     # displacements on the left, map on the right
 
 # sites to omit from plots

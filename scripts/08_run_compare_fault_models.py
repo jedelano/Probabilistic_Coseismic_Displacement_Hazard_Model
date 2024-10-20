@@ -9,13 +9,13 @@ from pcdhm.compare_fault_model import compare_faultmodel_prob_plot, compare_disp
 plot_order_name = "12 sites"                 # "12 sites" or "pared" or "porirua"
 results_directory = "results_r1"
 exceed_type = "down"                     # "down", "up", or "total_abs"
-slip_taper = False
+#slip_taper = False
 
 # Choose what models to compare. These names should be in the results folder already.
 #model_subdirectory_names = ['crustal_CFM', 'crustal_Model1', 'crustal_Model2']
 #model_subdirectory_names = ['sz_multi50', 'sz_multi50_steeperdip', 'sz_multi50_gentlerdip']
-#model_subdirectory_names = ['crustal_CFM', 'crustal_CFM_tapered']
-model_subdirectory_names = ['crustal_Model2', 'sz_multi50', 'paired_c_Model2_sz_multi50']
+model_subdirectory_names = ['crustal_CFM', 'crustal_CFM_tapered']
+#model_subdirectory_names = ['crustal_Model2', 'sz_multi50', 'paired_c_Model2_sz_multi50']
 
 # used for plot labels/titles. must be in same order as model_subdirectory_names
 pretty_names = model_subdirectory_names
@@ -39,12 +39,13 @@ title = " vs ".join(pretty_names)
 file_name = "_".join(pretty_names)
 file_name = file_name.replace(" ", "_")
 
-if slip_taper: slip_taper_extension = "_tapered"
-else: slip_taper_extension = "_uniform"
+# if slip_taper: slip_taper_extension = "_tapered"
+# else: slip_taper_extension = "_uniform"
 
 mean_PPE_path_list = []
 for name in model_subdirectory_names:
-    mean_PPE_path_i = f"../{results_directory}/{name}/weighted_mean_PPE_dict{slip_taper_extension}.pkl"
+    #mean_PPE_path_i = f"../{results_directory}/{name}/weighted_mean_PPE_dict{slip_taper_extension}.pkl"
+    mean_PPE_path_i = f"../{results_directory}/{name}/weighted_mean_PPE_dict*.pkl"
     mean_PPE_path_list.append(mean_PPE_path_i)
 
 compare_results_directory = f"{results_directory}/compare_fault_models"
