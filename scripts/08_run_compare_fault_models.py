@@ -1,6 +1,7 @@
 
 import os
 import matplotlib
+from glob import glob
 from pcdhm.weighted_mean_plotting import map_and_plot_probabilities
 from pcdhm.compare_fault_model import compare_faultmodel_prob_plot, compare_disps_chart, compare_mean_hazcurves, \
     compare_disps_with_net
@@ -14,19 +15,19 @@ exceed_type = "down"                     # "down", "up", or "total_abs"
 # Choose what models to compare. These names should be in the results folder already.
 #model_subdirectory_names = ['crustal_CFM', 'crustal_Model1', 'crustal_Model2']
 #model_subdirectory_names = ['sz_multi50', 'sz_multi50_steeperdip', 'sz_multi50_gentlerdip']
-model_subdirectory_names = ['crustal_CFM', 'crustal_CFM_tapered']
+model_subdirectory_names = ['paired_c_Model2_sz_multi50']
 #model_subdirectory_names = ['crustal_Model2', 'sz_multi50', 'paired_c_Model2_sz_multi50']
 
 # used for plot labels/titles. must be in same order as model_subdirectory_names
 pretty_names = model_subdirectory_names
 
 file_type_list = ["png", "pdf"]     # generally png and/or pdf
-probability_plot = True             # plots the probability of exceedance at the 0.2 m uplift and subsidence thresholds
-displacement_chart = True           # plots the displacement at the 10% and 2% probability of exceedance thresholds
-compare_hazcurves = True        # plots the different hazard curves on the same plot
-make_map = False
+probability_plot = False             # plots the probability of exceedance at the 0.2 m uplift and subsidence thresholds
+displacement_chart = False           # plots the displacement at the 10% and 2% probability of exceedance thresholds
+compare_hazcurves = False        # plots the different hazard curves on the same plot
+make_map = True
 disps_net = False
-labels_on = False                # displacement number labels for bar charts and probability plots
+labels_on = True                # displacement number labels for bar charts and probability plots
 
 
 #### script ###################
@@ -39,14 +40,10 @@ title = " vs ".join(pretty_names)
 file_name = "_".join(pretty_names)
 file_name = file_name.replace(" ", "_")
 
-# if slip_taper: slip_taper_extension = "_tapered"
-# else: slip_taper_extension = "_uniform"
-
 mean_PPE_path_list = []
 for name in model_subdirectory_names:
-    #mean_PPE_path_i = f"../{results_directory}/{name}/weighted_mean_PPE_dict{slip_taper_extension}.pkl"
-    mean_PPE_path_i = f"../{results_directory}/{name}/weighted_mean_PPE_dict*.pkl"
-    mean_PPE_path_list.append(mean_PPE_path_i)
+    mean_PPE_path_i = glob(f"../{results_directory}/{name}/weighted_mean_PPE_dict*.pkl")
+    mean_PPE_path_list.append(mean_PPE_path_i[0])
 
 compare_results_directory = f"{results_directory}/compare_fault_models"
 if not os.path.exists(f"../{compare_results_directory}"):
@@ -105,4 +102,4 @@ if make_map:
                                        labels_on=True,
                                        file_type_list=file_type_list,
                                        threshold=disp,
-                                       colorbar_max=0.3)
+                                       colorbar_max=0.35)

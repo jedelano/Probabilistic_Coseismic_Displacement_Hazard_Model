@@ -547,11 +547,11 @@ def map_and_plot_probabilities(PPE_path, plot_name, title, outfile_directory, pl
     axs[0].yaxis.set_major_locator(mticker.MultipleLocator(0.1))
     axs[0].set_xticks(probability_x_vals, plot_order, va='top', ha='center')
     axs[0].set_ylabel("Probabilty", fontsize=fontsize)
-    axs[0].set_title(f"Probability of exceeding {threshold} m uplift", fontsize=fontsize)
+    axs[0].set_title(f"Probability of exceeding {threshold} m {exceed_type}", fontsize=fontsize)
 
     ### Format the right subplot (map)
     # axes, ticks, labels
-    axs[1].set_title(f"Probability of exceeding {threshold} m subsidence", fontsize=fontsize)
+    axs[1].set_title(f"Probability of exceeding {threshold} m {exceed_type}", fontsize=fontsize)
     axs[1].set_xticks(np.arange(xmin_tick, xmax_tick, tick_separation))
     axs[1].xaxis.set_major_formatter(mticker.FormatStrFormatter('%.f mE'))
     axs[1].set_yticks(np.arange(ymin_tick, ymax_tick, tick_separation))
