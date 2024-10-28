@@ -10,22 +10,22 @@ from pcdhm.compare_fault_model import compare_faultmodel_prob_plot, compare_disp
 plot_order_name = "12 sites"                 # "12 sites" or "pared" or "porirua"
 results_directory = "results_r1"
 exceed_type = "down"                     # "down", "up", or "total_abs"
-#slip_taper = False
 
 # Choose what models to compare. These names should be in the results folder already.
-#model_subdirectory_names = ['crustal_CFM', 'crustal_Model1', 'crustal_Model2']
-#model_subdirectory_names = ['sz_multi50', 'sz_multi50_steeperdip', 'sz_multi50_gentlerdip']
-model_subdirectory_names = ['paired_c_Model2_sz_multi50']
+# model_subdirectory_names = ['crustal_CFM', 'crustal_Model1', 'crustal_Model2']
+#model_subdirectory_names = ['sz_multi50', 'sz_multi50_steeperdip']
+#model_subdirectory_names = ['paired_c_Model2_sz_multi50']
 #model_subdirectory_names = ['crustal_Model2', 'sz_multi50', 'paired_c_Model2_sz_multi50']
+model_subdirectory_names = ['crustal_CFM']
 
 # used for plot labels/titles. must be in same order as model_subdirectory_names
 pretty_names = model_subdirectory_names
 
 file_type_list = ["png", "pdf"]     # generally png and/or pdf
-probability_plot = False             # plots the probability of exceedance at the 0.2 m uplift and subsidence thresholds
-displacement_chart = False           # plots the displacement at the 10% and 2% probability of exceedance thresholds
+probability_plot = True             # plots the probability of exceedance at the 0.2 m uplift and subsidence thresholds
+displacement_chart = True           # plots the displacement at the 10% and 2% probability of exceedance thresholds
 compare_hazcurves = False        # plots the different hazard curves on the same plot
-make_map = True
+make_map = False
 disps_net = False
 labels_on = True                # displacement number labels for bar charts and probability plots
 
@@ -49,7 +49,7 @@ compare_results_directory = f"{results_directory}/compare_fault_models"
 if not os.path.exists(f"../{compare_results_directory}"):
         os.makedirs(f"../{compare_results_directory}")
 
-outfile_directory = f"{compare_results_directory}/{file_name}"
+outfile_directory = f"{compare_results_directory}/labels_{file_name}"
 if not os.path.exists(f"../{outfile_directory}"):
         os.makedirs(f"../{outfile_directory}")
 

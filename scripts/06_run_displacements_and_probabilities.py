@@ -9,27 +9,27 @@ from pcdhm.probabalistic_displacement import get_site_disp_dict, get_cumu_PPE, p
 
 ##### USER INPUTS   #####
 # must run crustal and subduction lists/loops separately
-results_directory = "results_r1"
+results_directory = "results_r1_testing"
 
-slip_taper = True                    # True or False, only matters if crustal otherwise it defaults to false later.
-fault_type = "crustal"                  # "crustal or "sz"
+slip_taper = False                    # True or False, only matters if crustal otherwise it defaults to false later.
+fault_type = "sz"                  # "crustal or "sz"
 
 # How many branches do you want to run?
 # True: picks the most central branch (i.e. geologic, time independent, mid b and N). Saves time, useful for
 # generating displacement maps for scenarios (e.g., gf_type=grid) or troubleshooting.
 # False: runs all branches in a fault model. All branches are needed for '07_run_aggregate_weighted_branches.py'.
 # False is most useful for gf_name = "sites"
-single_branch = False
+single_branch = True
 
 # True: Use the predefined subset of rupture IDs
 # False: Make a random sample of rupture IDs + the predefined subset
-specific_rupture_ids = False
+specific_rupture_ids = True
 
 # can only run one type of GF and fault geometry at a time
 gf_name = "sites"                               # "sites" or "grid" or "coastal"
 crustal_mesh_version = "_CFM_tapered"           # e.g.,  "_Model1", "_Model2", or "_CFM"
-sz_mesh_version = "_multi50"                    # must match suffix in the subduction directory
-out_files_directory = "mesh_gf_outfiles_r1"     # used for grabbing geojsons
+sz_mesh_version = "_multi50_gentlerdip"                    # must match suffix in the subduction directory
+out_files_directory = "mesh_gf_outfiles_r1_testing"     # used for grabbing geojsons
 
 # Can run more than one type of deformation model at a time (only matters for crustal)
 deformation_model = "geologic and geodetic"          # "geologic" or "geodetic" or "geologic and geodetic"
@@ -44,7 +44,7 @@ calculate_displacements = True
 
 # True: calculates PPE dictionaries for the "sites" only gf_name; saves to "cumu_exceed_prob_{extension1}.pkl"
 # False: skips calculating PPE dictionaries; uses saved file for plotting
-calculate_probabilities = True
+calculate_probabilities = False
 
 # making figures
 file_type_list = ["png", "pdf"]               # e.g. ["png", "pdf"] or ["png"]
@@ -52,7 +52,7 @@ skipped_sites = ["Porirua CBD south"]       # ["site1", "site2", "site3"]
 # Scenario displacement maps
 # True: makes displacement map figures of a sample of rupture scenarios. Mostly useful for grid gfs.
 # False: skips making displacement map figures
-make_scenario_displacement_maps = False
+make_scenario_displacement_maps = True
 
 # True: uses saved dictionaries to make probability and displacement figures for each branch
 # False: skips making probability and displacement figures for each branch

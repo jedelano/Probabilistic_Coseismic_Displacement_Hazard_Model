@@ -8,26 +8,14 @@ from time import time
 Outputs a dictionary of greens functions solutions"""
 
 ##### USER INPUTS #####
-sz_mesh_version = "_multi50"
-out_files_directory = "mesh_gf_outfiles"
-cell_size = 10000            # in meters; spacing between grid points. ~4k makes ok map for Wellington, but it's slow.
+sz_mesh_version = "_multi50_gentlerdip"     # must match mesh_gf_outfiles subdirectory name
+out_files_directory = "mesh_gf_outfiles_r1_testing"
+cell_size = 5000            # in meters; spacing between grid points. ~4k makes ok map for Wellington, but it's slow.
 x, y = 1760934, 5431096     # central location of grid; Seaview
 buffer_size = 12.e4         # in meters (area around Wellington to calculate displacements)
 
-steeper_dip, gentler_dip = False, False
-
 #######################
 gf_type = "grid"
-
-if steeper_dip == True and gentler_dip == False:
-    sz_mesh_version += "_steeperdip"
-elif gentler_dip == True and steeper_dip == False:
-    sz_mesh_version += "_gentlerdip"
-elif gentler_dip == False and steeper_dip == False:
-    sz_mesh_version += ""
-else:
-    print("Dip modifications are wrong. Only one statement can be True at once. Try again.")
-    exit()
 
 # load files: open discretized dict of subduction interface to calculate grenns functions over
 out_files_path = f"../{out_files_directory}/sz{sz_mesh_version}"
