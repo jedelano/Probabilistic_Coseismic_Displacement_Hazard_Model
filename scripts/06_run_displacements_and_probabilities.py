@@ -19,9 +19,9 @@ fault_type = "sz"                  # "crustal or "sz"
 # generating displacement maps for scenarios (e.g., gf_type=grid) or troubleshooting.
 # False: runs all branches in a fault model. All branches are needed for '07_run_aggregate_weighted_branches.py'.
 # False is most useful for gf_name = "sites"
-single_branch = True
+single_branch = False
 
-# True: Use the predefined subset of rupture IDs
+# True: Use the predefined subset of rupture IDs for figures
 # False: Make a random sample of rupture IDs + the predefined subset
 specific_rupture_ids = True
 
@@ -44,7 +44,7 @@ calculate_displacements = True
 
 # True: calculates PPE dictionaries for the "sites" only gf_name; saves to "cumu_exceed_prob_{extension1}.pkl"
 # False: skips calculating PPE dictionaries; uses saved file for plotting
-calculate_probabilities = False
+calculate_probabilities = True
 
 # making figures
 file_type_list = ["png", "pdf"]               # e.g. ["png", "pdf"] or ["png"]
@@ -52,7 +52,7 @@ skipped_sites = ["Porirua CBD south"]       # ["site1", "site2", "site3"]
 # Scenario displacement maps
 # True: makes displacement map figures of a sample of rupture scenarios. Mostly useful for grid gfs.
 # False: skips making displacement map figures
-make_scenario_displacement_maps = True
+make_scenario_displacement_maps = False
 
 # True: uses saved dictionaries to make probability and displacement figures for each branch
 # False: skips making probability and displacement figures for each branch

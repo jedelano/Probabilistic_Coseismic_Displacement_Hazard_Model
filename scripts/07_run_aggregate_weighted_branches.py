@@ -26,11 +26,11 @@ slip_taper = False                           # True or False, only matters if cr
 
 # Run PPE or figures for a single fault model or a paired crustal/subduction model?
 paired_crustal_sz = False                  # True: combined sz and crustal; False: uses [single] fault type
-single_fault_type = 'crustal'                       # "crustal or "sz"; only matters for single fault model
+single_fault_type = 'sz'                       # "crustal or "sz"; only matters for single fault model
 
 # "_Model1", "_Model2", or "_CFM" for crustal; must match results subdirectory suffix
 crustal_model_version = "_CFM"
-sz_model_version = "_multi50_gentlerdip"
+sz_model_version = "_multi50"
 
 # Do you want to calculate PPEs (probabilities) and weighted mean PPE for the fault model?
 # True: Only has to be done once because it is saved in a pickle file
@@ -42,7 +42,7 @@ figure_file_type_list = ["png", "pdf"]             # file types for figures
 probability_plot = False                         # plots the prob at the 0.2 m uplift and subsidence thresholds
 displacement_chart = False                       # plots disp at the 10% and 2% probability of exceedance
 make_hazcurves = False                               # plots all branches and weight mean haz curves
-make_colorful_hazcurves = True                     # plots branches colored by unique_id_keyphrase_list
+make_colorful_hazcurves = True                   # plots branches colored by unique_id_keyphrase_list
 make_map = False                                     # displacements on the left, map on the right
 
 # sites to omit from plots
@@ -57,7 +57,7 @@ show_def_model_variation = True            # deformation model
 show_time_dependence = True                # time dependent or time independent
 
 #choose which version of the figures to make
-exceed_type_list = ["up"] # e.g. ["up", "down", "total_abs"]
+exceed_type_list = ["down"] # e.g. ["up", "down", "total_abs"]
 
 ########## script ############################################
 # get branch weights from the saved Excel spreadsheet
