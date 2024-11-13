@@ -8,15 +8,16 @@ import os
 from pcdhm.shared_helper import check_triangle_normal
 
 #### USER INPUT #####
-sz_mesh_version  = "_multi50"
-out_files_directory = "mesh_gf_outfiles"
+# specify in the mesh version string if the dip angle has been modified e.g. "_multi50_steeperdip" or "_gentlerdip"
+sz_mesh_version = "_multi50_steeperdip"
+out_files_directory = "mesh_gf_outfiles_r1_testing"
+
+# Sensitivity testing for subduction interface depth
+steeper_dip = True
+gentler_dip = False
 
 # this can be any working branch, should be the same for all.
 NSHM_directory = "NZSHM22_AveragedInversionSolution-QXV0b21hdGlvblRhc2s6MTA3MzMx"
-
-# Sensitivity testing for subduction interface depth
-steeper_dip = False
-gentler_dip = False
 
 # De-blobify outputs
 deblobify = True
@@ -25,10 +26,6 @@ deblobify = True
 if steeper_dip and gentler_dip:
     print("Dip modifications are wrong. Only one statement can be True at once. Try again.")
     exit()
-elif steeper_dip:
-    sz_mesh_version += "_steeperdip"
-elif gentler_dip:
-    sz_mesh_version += "_gentlerdip"
 
 # make outfiles directory if it doesn't already exist
 if not os.path.exists(f"../{out_files_directory}"):
@@ -56,35 +53,17 @@ for i, trace in traces.iterrows():
     # Convert the depths to metres
     trace_array[:, -1] *= -1000.
 
-    ######## depth sensitivity testing
-
     initial_patch_height = (trace.LowDepth - trace.UpDepth) * 1000.
     initial_tandip = np.tan(np.radians(trace.DipDeg))
     patch_horizontal_dist = initial_patch_height / initial_tandip
 
-    # set conditions for rectangular patch geometry parameters, which change with dip angle
-    # for steeper dip ( fault section depths * 1.85)
-    if steeper_dip == True and gentler_dip == False:
-        low_depth, up_depth = trace.LowDepth * 1.15, trace.UpDepth * 1.15
-        patch_height = (low_depth - up_depth) * 1000.
-        trace_centroid = np.array([*trace.geometry.centroid.coords[0], trace.UpDepth * -1000])
-        dip_angle = np.degrees(np.arctan(patch_height / patch_horizontal_dist))
-
-    # for gentler dip ( fault section depths * 0.85)
-    elif gentler_dip == True and steeper_dip == False:
-        low_depth, up_depth = trace.LowDepth * 0.85, trace.UpDepth * 0.85
-        patch_height = (low_depth - up_depth) * 1000.
-        trace_centroid = np.array([*trace.geometry.centroid.coords[0], trace.UpDepth * -1000])
-        dip_angle = np.degrees(np.arctan(patch_height / patch_horizontal_dist))
-
-    # uses geometry from NSHM with no modifications
-    elif gentler_dip == False and steeper_dip == False:
-        low_depth, up_depth = trace.LowDepth, trace.UpDepth
-        # Calculate the centroid of the trace
-        trace_centroid = np.array([*trace.geometry.centroid.coords[0], trace.UpDepth * -1000])
-        # Calculate the height of the patch
-        patch_height = (trace.LowDepth - trace.UpDepth) * 1000.
-        dip_angle = trace.DipDeg
+    # uses geometry from NSHM
+    low_depth, up_depth = trace.LowDepth, trace.UpDepth
+    # Calculate the centroid of the trace
+    trace_centroid = np.array([*trace.geometry.centroid.coords[0], trace.UpDepth * -1000])
+    # Calculate the height of the patch
+    patch_height = (trace.LowDepth - trace.UpDepth) * 1000.
+    dip_angle = trace.DipDeg
 
     # write patch attributes to dictionary and add to bottom of data frame
     df2 = pd.DataFrame({'fault_id': [int(trace.FaultID)], 'dip_deg': [dip_angle], 'patch_height_m': [patch_height],
@@ -102,7 +81,6 @@ for i, trace in traces.iterrows():
     # Calculate the across-strike vector, by rotating the strike vector 90 degrees
     # aka dip direction vector (x, y), Normalized.
     across_strike = np.matmul(np.array([[0, 1], [-1, 0]]), trace_strike[:-1])
-    #across_strike = np.matmul(np.array([[0, 1], [-1, 0]]), trace_strike)
 
     # Calculate the down-dip vector by incorporating the dip angle
     cosdip = np.cos(np.radians(dip_angle))
@@ -132,7 +110,6 @@ all_rectangle_outline_gs = gpd.GeoSeries(all_rectangle_polygons, crs=2193)
 all_rectangle_outline_gdf = gpd.GeoDataFrame(df1, geometry=all_rectangle_outline_gs.geometry, crs=2193)
 all_rectangle_outline_gdf.to_file(f"{out_files_path}/all_rectangle_outlines.geojson", driver="GeoJSON", engine="fiona")
 
-#####
 # read in triangle mesh and add the patch centroids as points
 mesh = meshio.read(f"../data/hik_kerk3k_with_rake.vtk")
 mesh_rake = mesh.cell_data["rake"][0]
@@ -140,18 +117,12 @@ mesh_triangles = mesh.cells_dict["triangle"]    # indices of vertices that make 
 mesh_vertices = mesh.points              # xyz of vertices
 mesh_centroids = np.mean(mesh_vertices[mesh_triangles], axis=1)
 
-# multiply depths by steeper/gentler constant
-if steeper_dip == True:
-    mesh_vertices = mesh.points * [1, 1, 1.15]
-elif gentler_dip == True:
-    mesh_vertices = mesh.points * [1, 1, 0.85]
-else:
-    mesh_vertices = mesh.points # xyz of vertices in mesh. indexed.
+mesh_vertices = mesh.points # xyz of vertices in mesh. indexed.
 # array of 3 xyz arrays. (three sets of vertices to make a triangle)
 triangle_vertex_arrays = mesh_vertices[mesh_triangles]
 
 ###### ensuring correct strike convention for accurate displacment calculations later
-    # calculate the normal vector to each triangle. If negative, reverse ordering of triangle of vertices.
+# calculate the normal vector to each triangle. If negative, reverse ordering of triangle of vertices.
 ordered_triangle_vertex_arrays = []
 for triangle in triangle_vertex_arrays:
     ordered_triangle_array = check_triangle_normal(triangle)
@@ -225,13 +196,17 @@ discretized_dict = {}
 for index in traces.index:
     triangles_locs = np.where(closest_rectangles == index)[0]
     triangles = ordered_triangle_vertex_arrays[triangles_locs]
+    # modify the depths to test dip changes
+    if steeper_dip:
+        triangles[:, :, 2] *= 1.15
+    if gentler_dip:
+        triangles[:, :, 2] *= 0.85
 
     # make dictionary of triangles that go with each polygon
     triangle_polygons = [Polygon(triangle) for triangle in triangles]
     dissolved_triangle_polygons = gpd.GeoSeries(triangle_polygons).union_all()
     discretized_polygons.append(dissolved_triangle_polygons)
     discretized_dict[index] = {"triangles": triangles, "rake": mesh_rake[triangles_locs]}
-
 
 # Create a geodataframe and geospon file from the polygons
 gdf = gpd.GeoDataFrame({"rake": rectangle_rake, "geometry": discretized_polygons, "fault_id": traces.index})

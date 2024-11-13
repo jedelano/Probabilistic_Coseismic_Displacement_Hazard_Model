@@ -4,7 +4,7 @@ dependencies:
   - python>=3.10
   - cutde
   - fiona
-  - geopandas
+  - geopandas>=1.0.0
   - git-lfs
   - matplotlib
   - meshio
