@@ -1,7 +1,7 @@
 from pcdhm.probabalistic_displacement import \
     make_sz_crustal_paired_PPE_dict, \
-     make_fault_model_PPE_dict, \
-     get_weighted_mean_PPE_dict
+    make_fault_model_PPE_dict, \
+    make_weighted_mean_PPE_dict
 from pcdhm.weighted_mean_plotting import \
     plot_weighted_mean_haz_curves, \
     plot_weighted_mean_haz_curves_colorful
@@ -35,12 +35,12 @@ sz_model_version = "_multi50"
 # Do you want to calculate PPEs (probabilities) and weighted mean PPE for the fault model?
 # True: Only has to be done once because it is saved in a pickle file
 # False: uses saved pickle file; saves time
-calculate_fault_model_PPE = True               # calculate poissonian probabilities of exceedance
+calculate_fault_model_PPE = False               # calculate poissonian probabilities of exceedance
 
 # choose which figures to make
 figure_file_type_list = ["png", "pdf"]             # file types for figures
-probability_plot = True                         # plots the prob at the 0.2 m uplift and subsidence thresholds
-displacement_chart = True                       # plots disp at the 10% and 2% probability of exceedance
+probability_plot = False                         # plots the prob at the 0.2 m uplift and subsidence thresholds
+displacement_chart = False                       # plots disp at the 10% and 2% probability of exceedance
 make_hazcurves = False                               # plots all branches and weight mean haz curves
 make_colorful_hazcurves = False                   # plots branches colored by unique_id_keyphrase_list
 make_map = False                                     # displacements on the left, map on the right
@@ -56,10 +56,14 @@ show_s_value_variation = False               # non-stationary moment rate scalin
 show_def_model_variation = False            # deformation model
 show_time_dependence = False                # time dependent or time independent
 
-# time
-time_dependancy = 'TI'       # Both, TI, or TD
-if time_dependancy.upper() != 'BOTH':
-    outfile_extension += f"_{time_dependancy.upper()}"
+# sensitivity test calculations
+# completed:
+# TI, TD, geologic, geodeitc, S066, S10,
+branch_param_sensitivity_testing = True
+time_dependency = 'BOTH'       # BOTH, TI, or TD
+deformation_model = 'BOTH'  # 'geologic' or 'geodetic' or 'BOTH'
+s_value = 'S141'                # 'S066' or 'S10' or 'S141'
+b_n_value = 'BOTH'         # 'N34_b0959' or 'N46_b1089' or 'N27_b0823' or 'BOTH'
 
 #choose which version of the figures to make
 exceed_type_list = ["down"] # e.g. ["up", "down", "total_abs"]
@@ -73,6 +77,24 @@ crustal_sheet_name = "crustal_weights_4_2"
 sz_sheet_name = "sz_weights_4_0"
 
 #######
+# if more than one of them is not 'BOTH', raise an error
+num_not_both = [item
+                for item in [time_dependency, deformation_model, s_value, b_n_value]
+                if item != 'BOTH']
+if len(num_not_both) > 1:
+    print([time_dependency, deformation_model, s_value, b_n_value])
+    raise ValueError(f'too many sensitivity parameters')
+
+
+if time_dependency.upper() != 'BOTH':
+    outfile_extension += f"_{time_dependency.upper()}"
+if deformation_model.upper() != 'BOTH':
+    outfile_extension += f"_{deformation_model}"
+if s_value.upper() != 'BOTH':
+    outfile_extension += f"_{s_value}"
+if b_n_value.upper() != 'BOTH':
+    outfile_extension += f"_{b_n_value}"
+
 # only works for sites greens functions due to computational intensity
 gf_name = "sites"
 
@@ -80,8 +102,6 @@ if slip_taper is True:
     taper_extension = "_tapered"
 else:
     taper_extension = "_uniform"
-
-# plot_order = get_plot_order_list(skipped_sites=skipped_sites)
 
 # get branch weights from the saved Excel spreadsheet
 crustal_branch_weight_dict = make_branch_weight_dict(branch_weight_file_path=branch_weight_file_path,
@@ -96,20 +116,12 @@ if paired_crustal_sz:
 
 # designate which branch weight dictionary to use based on the fault type
 if not paired_crustal_sz and single_fault_type == "crustal":
-    if time_dependancy.upper() == 'BOTH':
-        fault_model_branch_weight_dict = crustal_branch_weight_dict
-    else:
-        fault_model_branch_weight_dict = {}
-        for key in crustal_branch_weight_dict.keys():
-            if time_dependancy.upper() == 'TI' and '_TI_' in key:
-                fault_model_branch_weight_dict[key] = crustal_branch_weight_dict[key]
-            if time_dependancy.upper() == 'TD' and '_TD_' in key:
-                fault_model_branch_weight_dict[key] = crustal_branch_weight_dict[key]
+    fault_model_branch_weight_dict = crustal_branch_weight_dict
     fault_model_version = crustal_model_version
+
 if not paired_crustal_sz and single_fault_type == "sz":
     fault_model_branch_weight_dict = sz_branch_weight_dict
     fault_model_version = sz_model_version
-
 
 ### make a dictionary of all the branch probabilities, oranized by site within each branch
 # option to skip this step if you've already run it once and saved to a pickle file
@@ -123,19 +135,53 @@ if not paired_crustal_sz:
     if calculate_fault_model_PPE:
         make_fault_model_PPE_dict(
             branch_weight_dict=fault_model_branch_weight_dict,
-            model_version_results_directory=model_version_results_directory, n_samples=n_samples,
-            slip_taper=slip_taper, outfile_extension=outfile_extension)
+            model_version_results_directory=model_version_results_directory,
+            n_samples=n_samples,
+            slip_taper=slip_taper,
+            outfile_extension=outfile_extension)
 
         with open(fault_model_PPE_filepath, 'rb') as f:
             PPE_dict = pkl.load(f)
 
-        weighted_mean_PPE_dict = get_weighted_mean_PPE_dict(fault_model_PPE_dict=PPE_dict,
-                                                            out_directory=model_version_results_directory,
-                                                            outfile_extension=outfile_extension, slip_taper=slip_taper)
-
+        make_weighted_mean_PPE_dict(fault_model_PPE_dict=PPE_dict,
+                                    out_directory=model_version_results_directory,
+                                    outfile_extension=outfile_extension,
+                                    slip_taper=slip_taper)
     else:
         with open(fault_model_PPE_filepath, 'rb') as f:
             PPE_dict = pkl.load(f)
+
+    # make the weighted_mean_PPE_dict for a subset of branches (branch sensitivity testing)
+    if branch_param_sensitivity_testing:
+        # filter the PPE dictionary by key phrase from the parameters
+        PPE_dict_param_filtered = {}
+        for key in PPE_dict.keys():
+            if time_dependency.upper() == 'TI' and '_TI_' in key:
+                PPE_dict_param_filtered[key] = PPE_dict[key]
+            if time_dependency.upper() == 'TD' and '_TD_' in key:
+                PPE_dict_param_filtered[key] = PPE_dict[key]
+            if deformation_model == 'geologic' and '_geologic_' in key:
+                PPE_dict_param_filtered[key] = PPE_dict[key]
+            if deformation_model == 'geodetic' and '_geodetic_' in key:
+                PPE_dict_param_filtered[key] = PPE_dict[key]
+            if s_value == 'S066' and '_S066_' in key:
+                PPE_dict_param_filtered[key] = PPE_dict[key]
+            if s_value == 'S10' and '_S10_' in key:
+                PPE_dict_param_filtered[key] = PPE_dict[key]
+            if s_value == 'S141' and '_S141_' in key:
+                PPE_dict_param_filtered[key] = PPE_dict[key]
+            if b_n_value == 'N34_b0959' and 'N34_b0959_' in key:
+                PPE_dict_param_filtered[key] = PPE_dict[key]
+            if b_n_value == 'N46_b1089' and 'N46_b1089_' in key:
+                PPE_dict_param_filtered[key] = PPE_dict[key]
+            if b_n_value == 'N46_b1089' and 'N46_b1089_' in key:
+                PPE_dict_param_filtered[key] = PPE_dict[key]
+
+        make_weighted_mean_PPE_dict(fault_model_PPE_dict=PPE_dict_param_filtered,
+                                    out_directory=model_version_results_directory,
+                                    outfile_extension=outfile_extension,
+                                    slip_taper=slip_taper)
+
 
 ##### paired crustal and sz PPE
 if paired_crustal_sz:
@@ -160,7 +206,7 @@ if paired_crustal_sz:
 
         with open(paired_PPE_filepath, 'rb') as f:
             PPE_dict = pkl.load(f)
-        weighted_mean_PPE_dict = get_weighted_mean_PPE_dict(fault_model_PPE_dict=PPE_dict,
+        make_weighted_mean_PPE_dict(fault_model_PPE_dict=PPE_dict,
                                                             out_directory=model_version_results_directory,
                                                             outfile_extension=outfile_extension, slip_taper=slip_taper)
 
