@@ -26,7 +26,7 @@ slip_taper = False                           # True or False, only matters if cr
 
 # Run PPE or figures for a single fault model or a paired crustal/subduction model?
 paired_crustal_sz = False                  # True: combined sz and crustal; False: uses [single] fault type
-single_fault_type = 'sz'                       # "crustal or "sz"; only matters for single fault model
+single_fault_type = 'crustal'                       # "crustal or "sz"; only matters for single fault model
 
 # "_Model1", "_Model2", or "_CFM" for crustal; must match results subdirectory suffix
 crustal_model_version = "_CFM"
@@ -35,14 +35,14 @@ sz_model_version = "_multi50"
 # Do you want to calculate PPEs (probabilities) and weighted mean PPE for the fault model?
 # True: Only has to be done once because it is saved in a pickle file
 # False: uses saved pickle file; saves time
-calculate_fault_model_PPE = False               # calculate poissonian probabilities of exceedance
+calculate_fault_model_PPE = True               # calculate poissonian probabilities of exceedance
 
 # choose which figures to make
 figure_file_type_list = ["png", "pdf"]             # file types for figures
-probability_plot = False                         # plots the prob at the 0.2 m uplift and subsidence thresholds
-displacement_chart = False                       # plots disp at the 10% and 2% probability of exceedance
+probability_plot = True                         # plots the prob at the 0.2 m uplift and subsidence thresholds
+displacement_chart = True                       # plots disp at the 10% and 2% probability of exceedance
 make_hazcurves = False                               # plots all branches and weight mean haz curves
-make_colorful_hazcurves = True                   # plots branches colored by unique_id_keyphrase_list
+make_colorful_hazcurves = False                   # plots branches colored by unique_id_keyphrase_list
 make_map = False                                     # displacements on the left, map on the right
 
 # sites to omit from plots
@@ -51,15 +51,22 @@ skipped_sites = ["Porirua CBD south"]       # ["site1", "site2", "site3"]
 # identify which branches are colored for "colorful haz curves"
 # more than one can be true, it just makes multiple different figures.
 # only matters if make_colorful_hazcurves is True
-show_b_n_variation = True                   # magnitude-frequency distribution
-show_s_value_variation = True               # non-stationary moment rate scaling
-show_def_model_variation = True            # deformation model
-show_time_dependence = True                # time dependent or time independent
+show_b_n_variation = False                   # magnitude-frequency distribution
+show_s_value_variation = False               # non-stationary moment rate scaling
+show_def_model_variation = False            # deformation model
+show_time_dependence = False                # time dependent or time independent
+
+# time
+time_dependancy = 'TI'       # Both, TI, or TD
+if time_dependancy.upper() != 'BOTH':
+    outfile_extension += f"_{time_dependancy.upper()}"
 
 #choose which version of the figures to make
 exceed_type_list = ["down"] # e.g. ["up", "down", "total_abs"]
 
 ########## script ############################################
+
+
 # get branch weights from the saved Excel spreadsheet
 branch_weight_file_path = f"../data/branch_weight_data.xlsx"
 crustal_sheet_name = "crustal_weights_4_2"
@@ -89,7 +96,15 @@ if paired_crustal_sz:
 
 # designate which branch weight dictionary to use based on the fault type
 if not paired_crustal_sz and single_fault_type == "crustal":
-    fault_model_branch_weight_dict = crustal_branch_weight_dict
+    if time_dependancy.upper() == 'BOTH':
+        fault_model_branch_weight_dict = crustal_branch_weight_dict
+    else:
+        fault_model_branch_weight_dict = {}
+        for key in crustal_branch_weight_dict.keys():
+            if time_dependancy.upper() == 'TI' and '_TI_' in key:
+                fault_model_branch_weight_dict[key] = crustal_branch_weight_dict[key]
+            if time_dependancy.upper() == 'TD' and '_TD_' in key:
+                fault_model_branch_weight_dict[key] = crustal_branch_weight_dict[key]
     fault_model_version = crustal_model_version
 if not paired_crustal_sz and single_fault_type == "sz":
     fault_model_branch_weight_dict = sz_branch_weight_dict
@@ -102,7 +117,7 @@ if not paired_crustal_sz:
     n_samples = 1000000
 
     model_version_results_directory = f"{results_directory}/{single_fault_type}{fault_model_version}"
-    fault_model_PPE_filepath = f"../{model_version_results_directory}/allbranch_PPE_dict{outfile_extension}{taper_extension}.pkl"
+    fault_model_PPE_filepath = f"../{model_version_results_directory}/allbranch_PPE_dict{taper_extension}.pkl"
 
     # Calculate the probabilities for each branch and save to a pickle file.
     if calculate_fault_model_PPE:
