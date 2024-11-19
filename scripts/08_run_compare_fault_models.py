@@ -18,7 +18,7 @@ model_subdirectory_names = ['crustal_CFM']
 #model_subdirectory_names = ['crustal_Model2', 'sz_multi50', 'paired_c_Model2_sz_multi50']
 #model_subdirectory_names = ['crustal_CFM']
 
-branch_sensitivity = True
+plot_branch_sensitivity = True
 # has to have an underscore at the beginning for now.
 # based on file name for weighted_mean_PPE_dict
 sensitivity_param = 's_value'  #time_dependency, 'deformation_model' 's_value', 'b_n_value'
@@ -36,8 +36,8 @@ labels_on = False                # displacement number labels for bar charts and
 
 
 #### script ###################
-if branch_sensitivity is True:
-    if sensitivity_param == 'time_dependent':
+if plot_branch_sensitivity is True:
+    if sensitivity_param == 'time_dependency':
         branch_params = ['TI', 'TD']
     elif sensitivity_param == 'deformation_model':
         branch_params = ['geologic', 'geodetic']
@@ -57,12 +57,17 @@ matplotlib.rcParams['pdf.fonttype'] = 42
 
 displacement_threshold_list = [0.2]
 
-title = " vs ".join(pretty_names)
-file_name = "_".join(pretty_names)
-file_name = file_name.replace(" ", "_")
+if not plot_branch_sensitivity:
+    title = " vs ".join(pretty_names)
+    file_name = "_".join(pretty_names)
+    file_name = file_name.replace(" ", "_")
+else:
+    title = f"{model_subdirectory_names[0]} {sensitivity_param}"
+    file_name = f'{sensitivity_param}'
+
 
 mean_PPE_path_list = []
-if branch_sensitivity is False:
+if plot_branch_sensitivity is False:
     compare_results_directory = f"{results_directory}/compare_fault_models"
     outfile_directory = f"{compare_results_directory}/{file_name}"
     for name in model_subdirectory_names:

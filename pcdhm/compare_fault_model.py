@@ -342,6 +342,7 @@ def compare_disps_with_net(PPE_paths, plot_name, title, pretty_names, outfile_di
     for file_type in file_type_list:
         fig.savefig(f"../{outfile_directory}/10_2_disps_net_{plot_name}.{file_type}", dpi=300)
 
+
 def compare_mean_hazcurves(PPE_paths, plot_name, outfile_directory, title, pretty_names, plot_order, exceed_type,
                            file_type_list):
 
@@ -391,9 +392,11 @@ def compare_mean_hazcurves(PPE_paths, plot_name, outfile_directory, title, prett
             if i == 0 and p == (len(PPE_dict_list) - 1):
                 ax.axhline(y=0.02, color="0.4", linestyle='dashed', label="2% probability")
                 ax.axhline(y=0.1, color="0.4", linestyle='dotted', label="10% probability")
+                ax.axvline(x=0.2, color ='0.4', linestyle='dashdot', label="0.2 m threshold")
             if i!= 0 and p == 0:
                 ax.axhline(y=0.02, color="0.4", linestyle='dashed', label='_nolegend_')
                 ax.axhline(y=0.1, color="0.4", linestyle='dotted', label='_nolegend_')
+                ax.axvline(x=0.2, color='0.4', linestyle='dashdot', label="_nolegend_")
 
             ax.set_title(site)
             ax.set_yscale('log'), ax.set_xscale('log')
@@ -409,10 +412,9 @@ def compare_mean_hazcurves(PPE_paths, plot_name, outfile_directory, title, prett
     #axs.xaxis.set_major_formatter(FormatStrFormatter('%.2f'))
     fig.text(0.5, 0, 'Vertical displacement threshold (m)', ha='center')
     fig.text(0, 0.5, 'Probability of exceedance in 100 years', va='center', rotation='vertical')
-    fig.suptitle(f"{title}\n100-year hazard curve, {exceed_type} displacements", fontsize=10)
+    fig.suptitle(f"\n{title}\n100-year hazard curve, {exceed_type} displacements", fontsize=12)
 
-
-    fig.legend(loc='lower right', fontsize=6)
+    fig.legend(loc='upper right', bbox_to_anchor=(0.98, 1), fontsize=6)
     plt.tight_layout()
 
     if not os.path.exists(f"../{outfile_directory}"):

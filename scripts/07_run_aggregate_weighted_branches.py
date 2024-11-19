@@ -62,8 +62,8 @@ show_time_dependence = False                # time dependent or time independent
 branch_param_sensitivity_testing = True
 time_dependency = 'BOTH'       # BOTH, TI, or TD
 deformation_model = 'BOTH'  # 'geologic' or 'geodetic' or 'BOTH'
-s_value = 'S141'                # 'S066' or 'S10' or 'S141'
-b_n_value = 'BOTH'         # 'N34_b0959' or 'N46_b1089' or 'N27_b0823' or 'BOTH'
+s_value = 'BOTH'                # 'S066' or 'S10' or 'S141'
+b_n_value = 'N27_b0823'         # 'N34_b0959' or 'N46_b1089' or 'N27_b0823' or 'BOTH'
 
 #choose which version of the figures to make
 exceed_type_list = ["down"] # e.g. ["up", "down", "total_abs"]
@@ -174,8 +174,11 @@ if not paired_crustal_sz:
                 PPE_dict_param_filtered[key] = PPE_dict[key]
             if b_n_value == 'N46_b1089' and 'N46_b1089_' in key:
                 PPE_dict_param_filtered[key] = PPE_dict[key]
-            if b_n_value == 'N46_b1089' and 'N46_b1089_' in key:
+            if b_n_value == 'N27_b0823' and 'N27_b0823_' in key:
                 PPE_dict_param_filtered[key] = PPE_dict[key]
+
+        if len(PPE_dict.keys()) < 1:
+            raise ValueError('PPE_dict is empty')
 
         make_weighted_mean_PPE_dict(fault_model_PPE_dict=PPE_dict_param_filtered,
                                     out_directory=model_version_results_directory,
