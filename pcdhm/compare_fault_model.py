@@ -8,11 +8,9 @@ from matplotlib.ticker import FormatStrFormatter
 from matplotlib.patches import Rectangle
 from pcdhm.weighted_mean_plotting import get_mean_prob_plot_data, get_mean_disp_barchart_data
 
-def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outfile_directory, plot_order,
+def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outfile_directory, plot_order, exceed_type_list,
                                  labels_on=True, file_type_list=["png"], threshold=0.2):
     """ """
-
-    exceed_type_list = ["up", "down"]
 
     PPE_dicts = []
     for i, PPE_path in enumerate(PPE_paths):
@@ -76,8 +74,13 @@ def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outf
     axs[0].set_ylabel("Probabilty", fontsize=8)
     axs[1].tick_params(axis='y', labelleft=False)
 
-    axs[0].set_title(f"Probability of exceeding {threshold} m uplift", fontsize=fontsize)
-    axs[1].set_title(f"Probability of exceeding {threshold} m subsidence", fontsize=fontsize)
+    if exceed_type != 'total_abs':
+        axs[0].set_title(f"Probability of exceeding {threshold} m uplift", fontsize=fontsize)
+        axs[1].set_title(f"Probability of exceeding {threshold} m subsidence", fontsize=fontsize)
+        exceed_type_file_extension = ""
+    else:
+        axs[0].set_title(f"POE {threshold} m vertical displacement (absolute value)", fontsize=fontsize)
+        exceed_type_file_extension = "_abs_val"
 
     fig.suptitle(f"{title} (100 yrs)")
     fig.tight_layout()
@@ -86,7 +89,7 @@ def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outf
         os.makedirs(f"../{outfile_directory}")
 
     for file_type in file_type_list:
-        fig.savefig(f"../{outfile_directory}/compare_probs_{plot_name}.{file_type}", dpi=300)
+        fig.savefig(f"../{outfile_directory}/compare_probs_{plot_name}{exceed_type_file_extension}.{file_type}", dpi=300)
 
 def compare_disps_chart(PPE_paths, plot_name, title, pretty_names, outfile_directory, plot_order,
                         labels_on=True, file_type_list=["png"],

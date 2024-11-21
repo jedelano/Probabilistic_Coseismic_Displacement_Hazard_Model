@@ -21,7 +21,7 @@ model_subdirectory_names = ['crustal_CFM']
 plot_branch_sensitivity = True
 # has to have an underscore at the beginning for now.
 # based on file name for weighted_mean_PPE_dict
-sensitivity_param = 's_value'  #time_dependency, 'deformation_model' 's_value', 'b_n_value'
+sensitivity_param = 'b_n_value'  #time_dependency, 'deformation_model' 's_value', 'b_n_value'
 
 # used for plot labels/titles. must be in same order as model_subdirectory_names
 pretty_names = model_subdirectory_names
@@ -29,10 +29,10 @@ pretty_names = model_subdirectory_names
 file_type_list = ["png", "pdf"]     # generally png and/or pdf
 probability_plot = True             # plots the probability of exceedance at the 0.2 m uplift and subsidence thresholds
 displacement_chart = False           # plots the displacement at the 10% and 2% probability of exceedance thresholds
-compare_hazcurves = True        # plots the different hazard curves on the same plot
+compare_hazcurves = False        # plots the different hazard curves on the same plot
 make_map = False
 disps_net = False
-labels_on = False                # displacement number labels for bar charts and probability plots
+labels_on = True                # displacement number labels for bar charts and probability plots
 
 
 #### script ###################
@@ -44,7 +44,7 @@ if plot_branch_sensitivity is True:
     elif sensitivity_param == 's_value':
         branch_params = ['S066', 'S10', 'S141']
     elif sensitivity_param == 'b_n_value':
-        branch_params = ['N34_b0959', 'N46_b1089', 'N27_b0823']
+        branch_params = ['N46_b1089', 'N34_b0959', 'N27_b0823']
     else:
         # print an exit statement with a string error
         raise ValueError('the sensitivity parameter is wrong')
@@ -96,19 +96,25 @@ if plot_order_name == "pared":
                     "Cape Palliser", "Flat Point"]
 
 if plot_order_name == "porirua":
-    plot_order = ["Porirua CBD north","Porirua CBD south"]
+    plot_order = ["Porirua CBD north", "Porirua CBD south"]
 
 
 if probability_plot:
+    if exceed_type == "total_abs":
+        exceed_type_list = ["total_abs"]
+    else:
+        exceed_type_list = ["up", "down"]
     compare_faultmodel_prob_plot(PPE_paths=mean_PPE_path_list,
                                  plot_name=file_name,
                                  outfile_directory=outfile_directory,
                                  title=title,
                                  pretty_names=pretty_names,
+                                 exceed_type_list=exceed_type_list,
                                  plot_order=plot_order,
                                  labels_on=labels_on,
                                  file_type_list=file_type_list,
                                  threshold=0.2)
+
 
 if displacement_chart:
     compare_disps_chart(PPE_paths=mean_PPE_path_list,
