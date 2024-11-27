@@ -9,7 +9,7 @@ from pcdhm.compare_fault_model import compare_faultmodel_prob_plot, compare_disp
 ########## USER INPUTS #######################
 plot_order_name = "12 sites"                 # "12 sites" or "pared" or "porirua"
 results_directory = "results_r1"
-exceed_type = "total_abs"                     # "down", "up", or "total_abs"
+exceed_type = "down"                     # "down", "up", or "total_abs"
 
 # Choose what models to compare. These names should be in the results folder already.
 model_subdirectory_names = ['crustal_CFM']
@@ -21,7 +21,7 @@ model_subdirectory_names = ['crustal_CFM']
 plot_branch_sensitivity = True
 # has to have an underscore at the beginning for now.
 # based on file name for weighted_mean_PPE_dict
-sensitivity_param = 'b_n_value'  #time_dependency, 'deformation_model' 's_value', 'b_n_value'
+sensitivity_param = 'time_dependency'  #time_dependency, 'deformation_model' 's_value', 'b_n_value'
 
 # used for plot labels/titles. must be in same order as model_subdirectory_names
 pretty_names = model_subdirectory_names
@@ -29,7 +29,7 @@ pretty_names = model_subdirectory_names
 file_type_list = ["png", "pdf"]     # generally png and/or pdf
 probability_plot = True             # plots the probability of exceedance at the 0.2 m uplift and subsidence thresholds
 displacement_chart = False           # plots the displacement at the 10% and 2% probability of exceedance thresholds
-compare_hazcurves = False        # plots the different hazard curves on the same plot
+compare_hazcurves = True        # plots the different hazard curves on the same plot
 make_map = False
 disps_net = False
 labels_on = True                # displacement number labels for bar charts and probability plots
@@ -63,7 +63,7 @@ if not plot_branch_sensitivity:
     file_name = file_name.replace(" ", "_")
 else:
     title = f"{model_subdirectory_names[0]} {sensitivity_param}"
-    file_name = f'{sensitivity_param}'
+    file_name = f'{sensitivity_param}_{exceed_type}'
 
 
 mean_PPE_path_list = []
