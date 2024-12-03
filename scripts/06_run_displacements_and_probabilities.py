@@ -9,7 +9,7 @@ from pcdhm.probabalistic_displacement import get_site_disp_dict, get_cumu_PPE, p
 
 ##### USER INPUTS   #####
 # must run crustal and subduction lists/loops separately
-results_directory = "results_r1_testing"
+results_directory = "results"
 
 slip_taper = False                    # True or False, only matters if crustal otherwise it defaults to false later.
 fault_type = "sz"                  # "crustal or "sz"
@@ -27,9 +27,9 @@ specific_rupture_ids = True
 
 # can only run one type of GF and fault geometry at a time
 gf_name = "sites"                               # "sites" or "grid" or "coastal"
-crustal_mesh_version = "_CFM_tapered"           # e.g.,  "_Model1", "_Model2", or "_CFM"
-sz_mesh_version = "_multi50_gentlerdip"                    # must match suffix in the subduction directory
-out_files_directory = "mesh_gf_outfiles_r1_testing"     # used for grabbing geojsons
+crustal_mesh_version = "CFM_tapered"           # e.g.,  "_Model1", "_Model2", or "_CFM"
+sz_mesh_version = "multi50_gentlerdip"                    # must match suffix in the subduction directory
+out_files_directory = "mesh_gf_outfiles"     # used for grabbing geojsons
 
 # Can run more than one type of deformation model at a time (only matters for crustal)
 deformation_model = "geologic and geodetic"          # "geologic" or "geodetic" or "geologic and geodetic"
@@ -136,7 +136,7 @@ if len(NSHM_directory_list) != len(set(NSHM_directory_list)):
 
 
 naming_extension_list = [gf_name + suffix for suffix in file_suffix_list]
-model_version_results_directory = f"{results_directory}/{fault_type}{mesh_version}"
+model_version_results_directory = f"{results_directory}/{fault_type}_{mesh_version}"
 grid = True if gf_name == "grid" else False
 
 
@@ -145,8 +145,8 @@ if not os.path.exists(f"../{results_directory}"):
 if not os.path.exists(f"../{model_version_results_directory}"):
     os.mkdir(f"../{model_version_results_directory}")
 
-crustal_outfiles_path = f"../{out_files_directory}/crustal{crustal_mesh_version}"
-sz_outfiles_path = f"../{out_files_directory}/sz{sz_mesh_version}"
+crustal_outfiles_path = f"../{out_files_directory}/crustal_{crustal_mesh_version}"
+sz_outfiles_path = f"../{out_files_directory}/sz_{sz_mesh_version}"
 
 if calculate_displacements is True:
     # Calculate displacements and make displacement dictionary once per branch. Save to pickle file in branch directory.

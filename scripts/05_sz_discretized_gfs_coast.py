@@ -7,7 +7,7 @@ from shapely.geometry import MultiPoint
 
 # Calculates greens functions along map at specified interval
 # Read in the geojson file from the NSHM inversion solution
-sz_mesh_version = "_multi50"
+sz_mesh_version = "multi50"
 out_files_directory = "mesh_gf_outfiles"
 steeper_dip, gentler_dip = False, False
 point_dist = 1000   # in meters
@@ -25,7 +25,7 @@ else:
     print("Dip modifications are wrong. Only one statement can be True at once. Try again.")
     exit()
 
-out_files_path = f"../{out_files_directory}/sz{sz_mesh_version}"
+out_files_path = f"../{out_files_directory}/sz_{sz_mesh_version}"
 
 # Load files
 target_coastline = gpd.read_file("../data/map/wellington_coast_merged.geojson")
@@ -52,8 +52,6 @@ for point in coast_points:
     y_data.append(point.y)
 
 points_x, points_y = np.array(x_data), np.array(y_data)
-#np.save(f"{out_files_path}/xpoints{sz_mesh_version}.npy", xpoints)
-#np.save(f"{out_files_path}/ypoints{sz_mesh_version}.npy", ypoints)
 points_xyz = np.vstack((points_x, points_y, points_x * 0.)).T
 
 # this just numbers the map points to be consistent with the other named site files.

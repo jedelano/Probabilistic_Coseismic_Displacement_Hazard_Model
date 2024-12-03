@@ -9,8 +9,8 @@ from pcdhm.shared_helper import check_triangle_normal
 
 #### USER INPUT #####
 # specify in the mesh version string if the dip angle has been modified e.g. "_multi50_steeperdip" or "_gentlerdip"
-sz_mesh_version = "_multi50_steeperdip"
-out_files_directory = "mesh_gf_outfiles_r1_testing"
+sz_mesh_version = "multi50_steeperdip"
+out_files_directory = "mesh_gf_outfiles"
 
 # Sensitivity testing for subduction interface depth
 steeper_dip = True
@@ -31,7 +31,7 @@ if steeper_dip and gentler_dip:
 if not os.path.exists(f"../{out_files_directory}"):
     os.mkdir(f"../{out_files_directory}")
 
-out_files_path = f"../{out_files_directory}/sz{sz_mesh_version}"
+out_files_path = f"../{out_files_directory}/sz_{sz_mesh_version}"
 if not os.path.exists(out_files_path):
     os.mkdir(out_files_path)
 

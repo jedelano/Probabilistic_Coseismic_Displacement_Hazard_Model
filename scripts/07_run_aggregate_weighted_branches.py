@@ -9,7 +9,7 @@ from pcdhm.shared_helper import \
     make_branch_weight_dict
 import pickle as pkl
 
-"""this script takes the displcements and probabilities from each fault model branch and aggregates them into a
+"""this script takes the displacements and probabilities from each fault model branch and aggregates them into a
 weighed mean. It then plots the hazard curves/probability figures.
 
 you can run this script for a single fault model or a paired crustal and subduction model. The paired model takes
@@ -17,7 +17,7 @@ the individual branch results and combines them, effectively creating n = X crus
 
 #### USER INPUTS   #####
 # set up file directories
-results_directory = 'results_r1'
+results_directory = 'results'
 # Optional; something to tack on to the end of the aggregated PPE dictionary so you don't overwrite files
 outfile_extension = ''
 
@@ -29,8 +29,8 @@ paired_crustal_sz = False                  # True: combined sz and crustal; Fals
 single_fault_type = 'crustal'                       # "crustal or "sz"; only matters for single fault model
 
 # "_Model1", "_Model2", or "_CFM" for crustal; must match results subdirectory suffix
-crustal_model_version = "_CFM"
-sz_model_version = "_multi50"
+crustal_model_version = "CFM"
+sz_model_version = "multi50"
 
 # Do you want to calculate PPEs (probabilities) and weighted mean PPE for the fault model?
 # True: Only has to be done once because it is saved in a pickle file

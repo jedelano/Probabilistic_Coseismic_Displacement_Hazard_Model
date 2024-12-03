@@ -3,7 +3,7 @@ import numpy as np
 import cutde.halfspace as HS
 
 ### USER INPUTS ###
-crustal_mesh_version = "_Model2"
+crustal_mesh_version = "CFM"
 out_files_directory = "mesh_gf_outfiles"
 steeper_dip, gentler_dip = False, False
 # smaller cells make nicer maps but take forever. ~4km grid ok for figures
@@ -13,7 +13,7 @@ buffer = 12.e4  # in meters (area around Wellington to calculate displacements)
 
 #########################
 gf_type = "grid"
-out_files_path = f"../{out_files_directory}/crustal{crustal_mesh_version}"
+out_files_path = f"../{out_files_directory}/crustal_{crustal_mesh_version}"
 
 # load files
 with open(f"{out_files_path}/crustal_discretized_dict.pkl", "rb") as f:

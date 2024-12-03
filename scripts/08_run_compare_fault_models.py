@@ -8,31 +8,28 @@ from pcdhm.compare_fault_model import compare_faultmodel_prob_plot, compare_disp
 
 ########## USER INPUTS #######################
 plot_order_name = "12 sites"                 # "12 sites" or "pared" or "porirua"
-results_directory = "results_r1"
+results_directory = "results_EXAMPLE2"
 exceed_type = "down"                     # "down", "up", or "total_abs"
 
 # Choose what models to compare. These names should be in the results folder already.
-model_subdirectory_names = ['crustal_CFM']
-#model_subdirectory_names = ['sz_multi50', 'sz_multi50_steeperdip', 'sz_multi50_gentlerdip']
-#model_subdirectory_names = ['paired_c_Model2_sz_multi50']
-#model_subdirectory_names = ['crustal_Model2', 'sz_multi50', 'paired_c_Model2_sz_multi50']
-#model_subdirectory_names = ['crustal_CFM']
-
-plot_branch_sensitivity = True
-# has to have an underscore at the beginning for now.
-# based on file name for weighted_mean_PPE_dict
-sensitivity_param = 'time_dependency'  #time_dependency, 'deformation_model' 's_value', 'b_n_value'
+model_subdirectory_names = ['sz_multi50', 'crustal_CFM']
 
 # used for plot labels/titles. must be in same order as model_subdirectory_names
 pretty_names = model_subdirectory_names
 
-file_type_list = ["png", "pdf"]     # generally png and/or pdf
+# plot crustal logic tree branch parameters.
+# Must already have calculated the specific "weighted_mean_PPE_dict" in step 07
+# set model subdirectory name (above) to appropriate crustal directory
+plot_branch_sensitivity = False
+sensitivity_param = 'time_dependency'  #time_dependency, 'deformation_model' 's_value', 'b_n_value'
+
+file_type_list = ["png"]     # generally png and/or pdf
 probability_plot = True             # plots the probability of exceedance at the 0.2 m uplift and subsidence thresholds
 displacement_chart = False           # plots the displacement at the 10% and 2% probability of exceedance thresholds
 compare_hazcurves = True        # plots the different hazard curves on the same plot
 make_map = False
 disps_net = False
-labels_on = True                # displacement number labels for bar charts and probability plots
+labels_on = False                # displacement number labels for bar charts and probability plots
 
 
 #### script ###################

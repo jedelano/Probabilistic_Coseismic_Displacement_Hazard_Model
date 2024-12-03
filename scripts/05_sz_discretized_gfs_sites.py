@@ -9,8 +9,8 @@ import os
 Outputs a dictionary of greens functions solutions"""
 
 ###### USER INPUTS ########
-sz_mesh_version = "_multi50_gentlerdip"
-out_files_directory = "mesh_gf_outfiles_r1_testing"
+sz_mesh_version = "multi50"
+out_files_directory = "mesh_gf_outfiles"
 steeper_dip, gentler_dip = False, True
 
 # in list form for one coord or list of lists for multiple (in NZTM)
@@ -35,7 +35,7 @@ site_name_list = ["Wellington CBD", "South Coast", "Wellington Airport", "Poriru
                   "Flat Point"]
 
 #############################################
-out_files_path = f"../{out_files_directory}/sz{sz_mesh_version}"
+out_files_path = f"../{out_files_directory}/sz_{sz_mesh_version}"
 
 x_data = site_coords[:, 0]
 y_data = site_coords[:, 1]
