@@ -1,0 +1,19 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::2193" } },
+"features": [
+{ "type": "Feature", "properties": { "site_name": "Wellington CBD", "x": 1749376, "y": 5427530 }, "geometry": { "type": "Point", "coordinates": [ 1749376.0, 5427530.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "South Coast", "x": 1736455, "y": 5427195 }, "geometry": { "type": "Point", "coordinates": [ 1736455.0, 5427195.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "Wellington Airport", "x": 1751064, "y": 5423128 }, "geometry": { "type": "Point", "coordinates": [ 1751064.0, 5423128.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "Porirua CBD north", "x": 1754357, "y": 5445716 }, "geometry": { "type": "Point", "coordinates": [ 1754357.0, 5445716.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "Porirua CBD south", "x": 1754557, "y": 5445119 }, "geometry": { "type": "Point", "coordinates": [ 1754557.0, 5445119.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "Petone", "x": 1757199, "y": 5434207 }, "geometry": { "type": "Point", "coordinates": [ 1757199.0, 5434207.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "Seaview", "x": 1759240, "y": 5432111 }, "geometry": { "type": "Point", "coordinates": [ 1759240.0, 5432111.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "Paraparaumu", "x": 1766726, "y": 5471342 }, "geometry": { "type": "Point", "coordinates": [ 1766726.0, 5471342.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "Eastbourne", "x": 1758789, "y": 5427418 }, "geometry": { "type": "Point", "coordinates": [ 1758789.0, 5427418.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "Turakirae Head", "x": 1760183, "y": 5410911 }, "geometry": { "type": "Point", "coordinates": [ 1760183.0, 5410911.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "Lake Ferry", "x": 1779348, "y": 5415831 }, "geometry": { "type": "Point", "coordinates": [ 1779348.0, 5415831.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "Cape Palliser", "x": 1789451, "y": 5391086 }, "geometry": { "type": "Point", "coordinates": [ 1789451.0, 5391086.0 ] } },
+{ "type": "Feature", "properties": { "site_name": "Flat Point", "x": 1848038, "y": 5429751 }, "geometry": { "type": "Point", "coordinates": [ 1848038.0, 5429751.0 ] } }
+]
+}
