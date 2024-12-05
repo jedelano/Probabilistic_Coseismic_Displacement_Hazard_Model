@@ -8,7 +8,7 @@ from shapely.geometry import MultiPoint
 # Calculates greens functions along map at specified interval
 # Read in the geojson file from the NSHM inversion solution
 sz_mesh_version = "multi50"
-out_files_directory = "mesh_gf_outfiles"
+out_files_directory = "mesh_gf_outfiles_EXAMPLE"
 steeper_dip, gentler_dip = False, False
 point_dist = 1000   # in meters
 

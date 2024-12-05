@@ -15,7 +15,7 @@ NSHM_directory = "NZSHM22_InversionSolution-QXV0b21hdGlvblRhc2s6MTA3MDEz"
 # provide model extension to match the mesh directory and name output directory
 crustal_mesh_version = "CFM"    #CFM, Model1, or Model2
 slip_taper = False
-out_files_directory = "mesh_gf_outfiles"
+out_files_directory = "mesh_gf_outfiles_EXAMPLE"
 
 ######## script
 # this must be the same length as the number of meshes and have some value that matches all the target fault sections

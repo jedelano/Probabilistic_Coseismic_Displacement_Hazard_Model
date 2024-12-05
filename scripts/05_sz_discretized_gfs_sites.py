@@ -10,8 +10,8 @@ Outputs a dictionary of greens functions solutions"""
 
 ###### USER INPUTS ########
 sz_mesh_version = "multi50"
-out_files_directory = "mesh_gf_outfiles"
-steeper_dip, gentler_dip = False, True
+out_files_directory = "mesh_gf_outfiles_EXAMPLE"
+steeper_dip, gentler_dip = False, False
 
 # in list form for one coord or list of lists for multiple (in NZTM)
 site_1_coord = np.array([1749376, 5427530, 0])   # downtown Wellington

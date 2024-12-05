@@ -35,12 +35,12 @@ sz_model_version = "multi50"
 # Do you want to calculate PPEs (probabilities) and weighted mean PPE for the fault model?
 # True: Only has to be done once because it is saved in a pickle file
 # False: uses saved pickle file; saves time
-calculate_fault_model_PPE = False               # calculate poissonian probabilities of exceedance
+calculate_fault_model_PPE = True               # calculate poissonian probabilities of exceedance
 
 # choose which figures to make
-figure_file_type_list = ["png", "pdf"]             # file types for figures
-probability_plot = False                         # plots the prob at the 0.2 m uplift and subsidence thresholds
-displacement_chart = False                       # plots disp at the 10% and 2% probability of exceedance
+figure_file_type_list = ["png"]             # file types for figures ['png', 'pdf']
+probability_plot = True                         # plots the prob at the 0.2 m uplift and subsidence thresholds
+displacement_chart = True                       # plots disp at the 10% and 2% probability of exceedance
 make_hazcurves = False                               # plots all branches and weight mean haz curves
 make_colorful_hazcurves = False                   # plots branches colored by unique_id_keyphrase_list
 make_map = False                                     # displacements on the left, map on the right
@@ -57,13 +57,13 @@ show_def_model_variation = False            # deformation model
 show_time_dependence = False                # time dependent or time independent
 
 # sensitivity test calculations
-# completed:
-# TI, TD, geologic, geodeitc, S066, S10,
-branch_param_sensitivity_testing = True
+# this was a late stage addition, treat them as a toggle. if  branch_param_sensitivity_testing is true,
+# only one of the params can be set to some non-Both value. Only one at a time.
+branch_param_sensitivity_testing = False
 time_dependency = 'BOTH'       # BOTH, TI, or TD
 deformation_model = 'BOTH'  # 'geologic' or 'geodetic' or 'BOTH'
 s_value = 'BOTH'                # 'S066' or 'S10' or 'S141'
-b_n_value = 'N27_b0823'         # 'N34_b0959' or 'N46_b1089' or 'N27_b0823' or 'BOTH'
+b_n_value = 'BOTH'         # 'N34_b0959' or 'N46_b1089' or 'N27_b0823' or 'BOTH'
 
 #choose which version of the figures to make
 exceed_type_list = ["down"] # e.g. ["up", "down", "total_abs"]
@@ -85,15 +85,15 @@ if len(num_not_both) > 1:
     print([time_dependency, deformation_model, s_value, b_n_value])
     raise ValueError(f'too many sensitivity parameters')
 
-
-if time_dependency.upper() != 'BOTH':
-    outfile_extension += f"_{time_dependency.upper()}"
-if deformation_model.upper() != 'BOTH':
-    outfile_extension += f"_{deformation_model}"
-if s_value.upper() != 'BOTH':
-    outfile_extension += f"_{s_value}"
-if b_n_value.upper() != 'BOTH':
-    outfile_extension += f"_{b_n_value}"
+if branch_param_sensitivity_testing:
+    if time_dependency.upper() != 'BOTH':
+        outfile_extension += f"_{time_dependency.upper()}"
+    if deformation_model.upper() != 'BOTH':
+        outfile_extension += f"_{deformation_model}"
+    if s_value.upper() != 'BOTH':
+        outfile_extension += f"_{s_value}"
+    if b_n_value.upper() != 'BOTH':
+        outfile_extension += f"_{b_n_value}"
 
 # only works for sites greens functions due to computational intensity
 gf_name = "sites"
@@ -111,8 +111,8 @@ sz_branch_weight_dict = make_branch_weight_dict(branch_weight_file_path=branch_w
 
 # these directories should already be made from calculating displacements in a previous script
 if paired_crustal_sz:
-    crustal_model_version_results_directory = f"{results_directory}/crustal{crustal_model_version}"
-    sz_model_version_results_directory = f"{results_directory}/sz{sz_model_version}"
+    crustal_model_version_results_directory = f"{results_directory}/crustal_{crustal_model_version}"
+    sz_model_version_results_directory = f"{results_directory}/sz_{sz_model_version}"
 
 # designate which branch weight dictionary to use based on the fault type
 if not paired_crustal_sz and single_fault_type == "crustal":
@@ -128,7 +128,7 @@ if not paired_crustal_sz and single_fault_type == "sz":
 if not paired_crustal_sz:
     n_samples = 1000000
 
-    model_version_results_directory = f"{results_directory}/{single_fault_type}{fault_model_version}"
+    model_version_results_directory = f"{results_directory}/{single_fault_type}_{fault_model_version}"
     fault_model_PPE_filepath = f"../{model_version_results_directory}/allbranch_PPE_dict{taper_extension}.pkl"
 
     # Calculate the probabilities for each branch and save to a pickle file.

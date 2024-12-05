@@ -11,7 +11,7 @@ import geopandas as gpd
 ############### USER INPUTS #####################
 # need to run once for each green's function type (grid, sites, coast points, etc.) but can reuse for different branches
 crustal_mesh_version = "CFM" # must match the extension in the out_files_directory subfolder
-out_files_directory = "mesh_gf_outfiles"
+out_files_directory = "mesh_gf_outfiles_EXAMPLE"
 
 ########
 steeper_dip, gentler_dip = False, False

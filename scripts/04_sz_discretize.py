@@ -9,11 +9,11 @@ from pcdhm.shared_helper import check_triangle_normal
 
 #### USER INPUT #####
 # specify in the mesh version string if the dip angle has been modified e.g. "_multi50_steeperdip" or "_gentlerdip"
-sz_mesh_version = "multi50_steeperdip"
-out_files_directory = "mesh_gf_outfiles"
+sz_mesh_version = "multi50"
+out_files_directory = "mesh_gf_outfiles_EXAMPLE"
 
 # Sensitivity testing for subduction interface depth
-steeper_dip = True
+steeper_dip = False
 gentler_dip = False
 
 # this can be any working branch, should be the same for all.

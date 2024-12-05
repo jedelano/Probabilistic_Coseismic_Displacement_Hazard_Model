@@ -4,7 +4,7 @@ import cutde.halfspace as HS
 
 ### USER INPUTS ###
 crustal_mesh_version = "CFM"
-out_files_directory = "mesh_gf_outfiles"
+out_files_directory = "mesh_gf_outfiles_EXAMPLE"
 steeper_dip, gentler_dip = False, False
 # smaller cells make nicer maps but take forever. ~4km grid ok for figures
 cell_size = 10000  # in meters,

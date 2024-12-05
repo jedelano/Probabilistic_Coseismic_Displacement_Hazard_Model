@@ -8,8 +8,8 @@ from time import time
 Outputs a dictionary of greens functions solutions"""
 
 ##### USER INPUTS #####
-sz_mesh_version = "multi50"     # must match mesh_gf_outfiles subdirectory name
-out_files_directory = "mesh_gf_outfiles"
+sz_mesh_version = "multi50"     # must match mesh_gf_outfiles_EXAMPLE subdirectory name
+out_files_directory = "mesh_gf_outfiles_EXAMPLE"
 cell_size = 5000            # in meters; spacing between grid points. ~4k makes ok map for Wellington, but it's slow.
 x, y = 1760934, 5431096     # central location of grid; Seaview
 buffer_size = 12.e4         # in meters (area around Wellington to calculate displacements)

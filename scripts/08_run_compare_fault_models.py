@@ -8,7 +8,7 @@ from pcdhm.compare_fault_model import compare_faultmodel_prob_plot, compare_disp
 
 ########## USER INPUTS #######################
 plot_order_name = "12 sites"                 # "12 sites" or "pared" or "porirua"
-results_directory = "results_EXAMPLE2"
+results_directory = "results_EXAMPLE"
 exceed_type = "down"                     # "down", "up", or "total_abs"
 
 # Choose what models to compare. These names should be in the results folder already.
@@ -25,7 +25,7 @@ sensitivity_param = 'time_dependency'  #time_dependency, 'deformation_model' 's_
 
 file_type_list = ["png"]     # generally png and/or pdf
 probability_plot = True             # plots the probability of exceedance at the 0.2 m uplift and subsidence thresholds
-displacement_chart = False           # plots the displacement at the 10% and 2% probability of exceedance thresholds
+displacement_chart = True           # plots the displacement at the 10% and 2% probability of exceedance thresholds
 compare_hazcurves = True        # plots the different hazard curves on the same plot
 make_map = False
 disps_net = False

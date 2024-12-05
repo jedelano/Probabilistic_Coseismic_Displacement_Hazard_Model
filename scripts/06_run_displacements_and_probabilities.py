@@ -9,7 +9,7 @@ from pcdhm.probabalistic_displacement import get_site_disp_dict, get_cumu_PPE, p
 
 ##### USER INPUTS   #####
 # must run crustal and subduction lists/loops separately
-results_directory = "results"
+results_directory = "results_EXAMPLE"
 
 slip_taper = False                    # True or False, only matters if crustal otherwise it defaults to false later.
 fault_type = "sz"                  # "crustal or "sz"
@@ -27,9 +27,9 @@ specific_rupture_ids = True
 
 # can only run one type of GF and fault geometry at a time
 gf_name = "sites"                               # "sites" or "grid" or "coastal"
-crustal_mesh_version = "CFM_tapered"           # e.g.,  "_Model1", "_Model2", or "_CFM"
-sz_mesh_version = "multi50_gentlerdip"                    # must match suffix in the subduction directory
-out_files_directory = "mesh_gf_outfiles"     # used for grabbing geojsons
+crustal_mesh_version = "CFM"           # e.g.,  "_Model1", "_Model2", or "_CFM"
+sz_mesh_version = "multi50"                    # must match suffix in the subduction directory
+out_files_directory = "mesh_gf_outfiles_EXAMPLE"     # used for grabbing geojsons
 
 # Can run more than one type of deformation model at a time (only matters for crustal)
 deformation_model = "geologic and geodetic"          # "geologic" or "geodetic" or "geologic and geodetic"

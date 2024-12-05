@@ -9,7 +9,7 @@ import os
 # find only the rupture scenarios that use faults we have meshes for
 NSHM_directory = "NZSHM22_InversionSolution-QXV0b21hdGlvblRhc2s6MTA3MDEz"  # geologic, mid B and N, C 4.2
 crustal_mesh_version = "CFM"         # "_Model1" or "_Model2" or "_CFM
-out_files_directory = "mesh_gf_outfiles" # name the outfiles location, same for subsequent scripts.
+out_files_directory = "mesh_gf_outfiles_EXAMPLE" # name the outfiles location, same for subsequent scripts.
 
 #############
 

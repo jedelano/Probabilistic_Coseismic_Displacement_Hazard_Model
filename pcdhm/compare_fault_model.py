@@ -28,9 +28,9 @@ def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outf
     fig, axs = plt.subplots(1, 2, figsize=(7, 3.5))
     x = np.arange(len(plot_order))  # the site label locations
 
+    # find the maximum y value for error bars so that the plot can be scaled correctly
+    all_max_errs_y = []
     for p, PPE_dict in enumerate(PPE_dicts):
-        # find the maximum y value for error bars so that the plot can be scaled correctly
-        all_max_errs_y = []
 
         for i, exceed_type in enumerate(exceed_type_list):
             mean_probs, errs_plus, errs_minus = \
@@ -57,7 +57,7 @@ def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outf
             if max(all_max_errs_y) < 0.25:
                 axs[i].set_ylim(0.0, 0.25)
             else:
-                axs[i].set_ylim(0.0, max(all_max_errs_y))
+                axs[i].set_ylim(0.0, max(all_max_errs_y)*1.05)
             axs[i].tick_params(axis='x', labelrotation=90, labelsize=6)
             axs[i].tick_params(axis='y', labelsize=8)
             axs[i].yaxis.set_major_formatter(FormatStrFormatter('%.1f'))
