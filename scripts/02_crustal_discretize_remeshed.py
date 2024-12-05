@@ -13,9 +13,9 @@ from pcdhm.shared_helper import read_rake_csv, check_triangle_normal
 # Doesn't really matter which inversion solution because all the NSHM fault files are the same.
 NSHM_directory = "NZSHM22_InversionSolution-QXV0b21hdGlvblRhc2s6MTA3MDEz"
 # provide model extension to match the mesh directory and name output directory
-crustal_mesh_version = "_CFM"    #_CFM, _Model1, or _Model2
-crustal_model_directory = "_CFM_tapered" # can be the same as the mesh version, add "taperd" if tapered slip.
-out_files_directory = "mesh_gf_outfiles_r1"
+crustal_mesh_version = "CFM"    #CFM, Model1, or Model2
+slip_taper = False
+out_files_directory = "mesh_gf_outfiles_EXAMPLE"
 
 ######## script
 # this must be the same length as the number of meshes and have some value that matches all the target fault sections
@@ -25,20 +25,23 @@ target_NSHM_fault_names = ["Aotea|Evans Bay", "Dry River|Huangarua", "Fisherman"
                            "Pahaua", "Palliser|Kaiwhata", "Pukerua", "Riversdale","Mana|Otaheke",
                            "Wairarapa", "Wellington Hutt", "Whareama", "Wharekauhau", "Whitemans"]
 
-mesh_directory = f"../data/wellington_alt_geom/meshes{crustal_mesh_version}/STL_remeshed"
-
-out_files_path = f"../{out_files_directory}/crustal{crustal_model_directory}"
+mesh_directory = f"../data/wellington_alt_geom/meshes_{crustal_mesh_version}/STL_remeshed"
+if slip_taper is True:
+    taper_extension = '_tapered'
+else:
+    taper_extension = ''
+out_files_path = f"../{out_files_directory}/crustal_{crustal_mesh_version}{taper_extension}"
 target_traces = gpd.read_file(f"{out_files_path}/name_filtered_fault_sections.geojson" "").to_crs(
     epsg=2193)
 all_traces = gpd.read_file(f"../data/crustal_solutions/{NSHM_directory}/ruptures/fault_sections.geojson"
                        "").to_crs(epsg=2193)
 # read in rake data
 rake_dict = read_rake_csv(f"../data/wellington_alt_geom/alt_geom_rakes.csv")
-if crustal_mesh_version == "_Model2":
+if crustal_mesh_version == "Model2":
     rake_col = "model2_rake"
-elif crustal_mesh_version == "_Model1":
+elif crustal_mesh_version == "Model1":
     rake_col = "model1_rake"
-elif crustal_mesh_version == "_CFM":
+elif crustal_mesh_version == "CFM":
     rake_col = "cfm_rake"
 
 # read in fault meshes and assign unique names to each one

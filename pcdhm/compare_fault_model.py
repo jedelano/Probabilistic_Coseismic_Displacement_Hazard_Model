@@ -8,11 +8,9 @@ from matplotlib.ticker import FormatStrFormatter
 from matplotlib.patches import Rectangle
 from pcdhm.weighted_mean_plotting import get_mean_prob_plot_data, get_mean_disp_barchart_data
 
-def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outfile_directory, plot_order,
+def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outfile_directory, plot_order, exceed_type_list,
                                  labels_on=True, file_type_list=["png"], threshold=0.2):
     """ """
-
-    exceed_type_list = ["up", "down"]
 
     PPE_dicts = []
     for i, PPE_path in enumerate(PPE_paths):
@@ -30,9 +28,9 @@ def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outf
     fig, axs = plt.subplots(1, 2, figsize=(7, 3.5))
     x = np.arange(len(plot_order))  # the site label locations
 
+    # find the maximum y value for error bars so that the plot can be scaled correctly
+    all_max_errs_y = []
     for p, PPE_dict in enumerate(PPE_dicts):
-        # find the maximum y value for error bars so that the plot can be scaled correctly
-        all_max_errs_y = []
 
         for i, exceed_type in enumerate(exceed_type_list):
             mean_probs, errs_plus, errs_minus = \
@@ -59,7 +57,7 @@ def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outf
             if max(all_max_errs_y) < 0.25:
                 axs[i].set_ylim(0.0, 0.25)
             else:
-                axs[i].set_ylim(0.0, max(all_max_errs_y))
+                axs[i].set_ylim(0.0, max(all_max_errs_y)*1.05)
             axs[i].tick_params(axis='x', labelrotation=90, labelsize=6)
             axs[i].tick_params(axis='y', labelsize=8)
             axs[i].yaxis.set_major_formatter(FormatStrFormatter('%.1f'))
@@ -76,8 +74,13 @@ def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outf
     axs[0].set_ylabel("Probabilty", fontsize=8)
     axs[1].tick_params(axis='y', labelleft=False)
 
-    axs[0].set_title(f"Probability of exceeding {threshold} m uplift", fontsize=fontsize)
-    axs[1].set_title(f"Probability of exceeding {threshold} m subsidence", fontsize=fontsize)
+    if exceed_type != 'total_abs':
+        axs[0].set_title(f"Probability of exceeding {threshold} m uplift", fontsize=fontsize)
+        axs[1].set_title(f"Probability of exceeding {threshold} m subsidence", fontsize=fontsize)
+        exceed_type_file_extension = ""
+    else:
+        axs[0].set_title(f"POE {threshold} m vertical displacement (absolute value)", fontsize=fontsize)
+        exceed_type_file_extension = "_abs_val"
 
     fig.suptitle(f"{title} (100 yrs)")
     fig.tight_layout()
@@ -86,7 +89,7 @@ def compare_faultmodel_prob_plot(PPE_paths, plot_name, title, pretty_names, outf
         os.makedirs(f"../{outfile_directory}")
 
     for file_type in file_type_list:
-        fig.savefig(f"../{outfile_directory}/compare_probs_{plot_name}.{file_type}", dpi=300)
+        fig.savefig(f"../{outfile_directory}/compare_probs_{plot_name}{exceed_type_file_extension}.{file_type}", dpi=300)
 
 def compare_disps_chart(PPE_paths, plot_name, title, pretty_names, outfile_directory, plot_order,
                         labels_on=True, file_type_list=["png"],
@@ -342,6 +345,7 @@ def compare_disps_with_net(PPE_paths, plot_name, title, pretty_names, outfile_di
     for file_type in file_type_list:
         fig.savefig(f"../{outfile_directory}/10_2_disps_net_{plot_name}.{file_type}", dpi=300)
 
+
 def compare_mean_hazcurves(PPE_paths, plot_name, outfile_directory, title, pretty_names, plot_order, exceed_type,
                            file_type_list):
 
@@ -391,9 +395,11 @@ def compare_mean_hazcurves(PPE_paths, plot_name, outfile_directory, title, prett
             if i == 0 and p == (len(PPE_dict_list) - 1):
                 ax.axhline(y=0.02, color="0.4", linestyle='dashed', label="2% probability")
                 ax.axhline(y=0.1, color="0.4", linestyle='dotted', label="10% probability")
+                ax.axvline(x=0.2, color ='0.4', linestyle='dashdot', label="0.2 m threshold")
             if i!= 0 and p == 0:
                 ax.axhline(y=0.02, color="0.4", linestyle='dashed', label='_nolegend_')
                 ax.axhline(y=0.1, color="0.4", linestyle='dotted', label='_nolegend_')
+                ax.axvline(x=0.2, color='0.4', linestyle='dashdot', label="_nolegend_")
 
             ax.set_title(site)
             ax.set_yscale('log'), ax.set_xscale('log')
@@ -409,10 +415,9 @@ def compare_mean_hazcurves(PPE_paths, plot_name, outfile_directory, title, prett
     #axs.xaxis.set_major_formatter(FormatStrFormatter('%.2f'))
     fig.text(0.5, 0, 'Vertical displacement threshold (m)', ha='center')
     fig.text(0, 0.5, 'Probability of exceedance in 100 years', va='center', rotation='vertical')
-    fig.suptitle(f"{title}\n100-year hazard curve, {exceed_type} displacements", fontsize=10)
+    fig.suptitle(f"\n{title}\n100-year hazard curve, {exceed_type} displacements", fontsize=12)
 
-
-    fig.legend(loc='lower right', fontsize=6)
+    fig.legend(loc='upper right', bbox_to_anchor=(0.98, 1), fontsize=6)
     plt.tight_layout()
 
     if not os.path.exists(f"../{outfile_directory}"):

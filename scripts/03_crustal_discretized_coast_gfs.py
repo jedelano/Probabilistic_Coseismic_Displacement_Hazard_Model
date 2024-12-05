@@ -6,15 +6,15 @@ import geopandas as gpd
 
 """calculates green's functions at regularly-spaced points along a line vector files (geojson)"""
 ###### USER INPUTS ######
-crustal_mesh_version = "_Model2"
-out_files_directory = "mesh_gf_outfiles"
+crustal_mesh_version = "CFM"
+out_files_directory = "mesh_gf_outfiles_EXAMPLE"
 steeper_dip, gentler_dip = False, False
 # distance between points along map
 point_dist = 500   # in meters
 
 #########################
 gf_type = "coast"
-out_files_path = f"../{out_files_directory}/crustal{crustal_mesh_version}"
+out_files_path = f"../{out_files_directory}/crustal_{crustal_mesh_version}"
 # load files
 with open(f"{out_files_path}/crustal_discretized_dict.pkl", "rb") as f:
     discretised_dict = pkl.load(f)

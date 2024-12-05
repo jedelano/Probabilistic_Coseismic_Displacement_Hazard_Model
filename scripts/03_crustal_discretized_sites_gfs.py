@@ -10,8 +10,8 @@ import geopandas as gpd
 
 ############### USER INPUTS #####################
 # need to run once for each green's function type (grid, sites, coast points, etc.) but can reuse for different branches
-crustal_mesh_version = "_CFM_tapered" # must match the extension in the out_files_directory subfolder
-out_files_directory = "mesh_gf_outfiles_r1"
+crustal_mesh_version = "CFM" # must match the extension in the out_files_directory subfolder
+out_files_directory = "mesh_gf_outfiles_EXAMPLE"
 
 ########
 steeper_dip, gentler_dip = False, False
@@ -51,7 +51,7 @@ else:
     exit()
 
 # load files
-out_files_path = f"../{out_files_directory}/crustal{crustal_mesh_version}"
+out_files_path = f"../{out_files_directory}/crustal_{crustal_mesh_version}"
 with open(f"{out_files_path}/crustal_discretized_dict.pkl", "rb") as f:
     discretised_dict = pkl.load(f)
 

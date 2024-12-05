@@ -250,7 +250,7 @@ def make_fault_model_PPE_dict(branch_weight_dict, model_version_results_director
     return fault_model_allbranch_PPE_dict
 
 
-def get_weighted_mean_PPE_dict(fault_model_PPE_dict, out_directory, outfile_extension, slip_taper):
+def make_weighted_mean_PPE_dict(fault_model_PPE_dict, out_directory, outfile_extension, slip_taper):
     """takes all the branch PPEs and combines them based on the branch weights into a weighted mean PPE dictionary
 
     :param fault_model_PPE_dict: The dictionary has PPEs for each branch (or branch pairing).
@@ -269,8 +269,12 @@ def get_weighted_mean_PPE_dict(fault_model_PPE_dict, out_directory, outfile_exte
     site_list = fault_model_PPE_dict[unique_id_list[0]]["cumu_PPE_dict"].keys()
 
     # weight the probabilities by NSHM branch weights to get a weighted mean
-    branch_weights = [fault_model_PPE_dict[unique_id]["branch_weight"] for unique_id in
-                      fault_model_PPE_dict.keys()]
+    raw_branch_weights = [fault_model_PPE_dict[unique_id]["branch_weight"]
+                          for unique_id in fault_model_PPE_dict.keys()]
+    # Sum the items in raw_branch_weights. If using all branches, sum is 1.
+    sum_raw_branch_weights = sum(raw_branch_weights)
+    branch_weights = [raw_branch_weight / sum_raw_branch_weights
+                      for raw_branch_weight in raw_branch_weights]
 
     # need a more elegant solution to this I think
     threshold_vals = np.arange(0, 3, 0.01)
@@ -311,7 +315,6 @@ def get_weighted_mean_PPE_dict(fault_model_PPE_dict, out_directory, outfile_exte
     with open(f"../{out_directory}/weighted_mean_PPE_dict{outfile_extension}{taper_extension}.pkl", "wb") as f:
         pkl.dump(weighted_mean_site_probs_dictionary, f)
 
-    return weighted_mean_site_probs_dictionary
 
 def make_sz_crustal_paired_PPE_dict(crustal_branch_weight_dict, sz_branch_weight_dict,
                                     crustal_model_version_results_directory, sz_model_version_results_directory,

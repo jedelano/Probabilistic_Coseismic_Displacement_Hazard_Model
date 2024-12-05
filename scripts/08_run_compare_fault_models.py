@@ -8,22 +8,24 @@ from pcdhm.compare_fault_model import compare_faultmodel_prob_plot, compare_disp
 
 ########## USER INPUTS #######################
 plot_order_name = "12 sites"                 # "12 sites" or "pared" or "porirua"
-results_directory = "results_r1"
-exceed_type = "up"                     # "down", "up", or "total_abs"
+results_directory = "results_EXAMPLE"
+exceed_type = "down"                     # "down", "up", or "total_abs"
 
 # Choose what models to compare. These names should be in the results folder already.
-model_subdirectory_names = ['crustal_CFM', 'crustal_Model1', 'crustal_Model2']
-#model_subdirectory_names = ['sz_multi50', 'sz_multi50_steeperdip', 'sz_multi50_gentlerdip']
-#model_subdirectory_names = ['paired_c_Model2_sz_multi50']
-#model_subdirectory_names = ['crustal_Model2', 'sz_multi50', 'paired_c_Model2_sz_multi50']
-#model_subdirectory_names = ['crustal_CFM']
+model_subdirectory_names = ['sz_multi50', 'crustal_CFM']
 
 # used for plot labels/titles. must be in same order as model_subdirectory_names
 pretty_names = model_subdirectory_names
 
-file_type_list = ["png", "pdf"]     # generally png and/or pdf
-probability_plot = False             # plots the probability of exceedance at the 0.2 m uplift and subsidence thresholds
-displacement_chart = False           # plots the displacement at the 10% and 2% probability of exceedance thresholds
+# plot crustal logic tree branch parameters.
+# Must already have calculated the specific "weighted_mean_PPE_dict" in step 07
+# set model subdirectory name (above) to appropriate crustal directory
+plot_branch_sensitivity = False
+sensitivity_param = 'time_dependency'  #time_dependency, 'deformation_model' 's_value', 'b_n_value'
+
+file_type_list = ["png"]     # generally png and/or pdf
+probability_plot = True             # plots the probability of exceedance at the 0.2 m uplift and subsidence thresholds
+displacement_chart = True           # plots the displacement at the 10% and 2% probability of exceedance thresholds
 compare_hazcurves = True        # plots the different hazard curves on the same plot
 make_map = False
 disps_net = False
@@ -31,25 +33,54 @@ labels_on = False                # displacement number labels for bar charts and
 
 
 #### script ###################
+if plot_branch_sensitivity is True:
+    if sensitivity_param == 'time_dependency':
+        branch_params = ['TI', 'TD']
+    elif sensitivity_param == 'deformation_model':
+        branch_params = ['geologic', 'geodetic']
+    elif sensitivity_param == 's_value':
+        branch_params = ['S066', 'S10', 'S141']
+    elif sensitivity_param == 'b_n_value':
+        branch_params = ['N46_b1089', 'N34_b0959', 'N27_b0823']
+    else:
+        # print an exit statement with a string error
+        raise ValueError('the sensitivity parameter is wrong')
+        # exit the script
+
+    pretty_names = branch_params
+
 # makes the text edible upon export to a pdf
 matplotlib.rcParams['pdf.fonttype'] = 42
 
 displacement_threshold_list = [0.2]
 
-title = " vs ".join(pretty_names)
-file_name = "_".join(pretty_names)
-file_name = file_name.replace(" ", "_")
+if not plot_branch_sensitivity:
+    title = " vs ".join(pretty_names)
+    file_name = "_".join(pretty_names)
+    file_name = file_name.replace(" ", "_")
+else:
+    title = f"{model_subdirectory_names[0]} {sensitivity_param}"
+    file_name = f'{sensitivity_param}_{exceed_type}'
+
 
 mean_PPE_path_list = []
-for name in model_subdirectory_names:
-    mean_PPE_path_i = glob(f"../{results_directory}/{name}/weighted_mean_PPE_dict*.pkl")
-    mean_PPE_path_list.append(mean_PPE_path_i[0])
+if plot_branch_sensitivity is False:
+    compare_results_directory = f"{results_directory}/compare_fault_models"
+    outfile_directory = f"{compare_results_directory}/{file_name}"
+    for name in model_subdirectory_names:
+        mean_PPE_path_i = glob(f"../{results_directory}/{name}/weighted_mean_PPE_dict*.pkl")
+        mean_PPE_path_list.append(mean_PPE_path_i[0])
+else:   # can only be one object in model_subdirectory_names
+    compare_results_directory = f"{results_directory}/compare_branch_sensitivity"
+    outfile_directory = f"{compare_results_directory}/{model_subdirectory_names[0]}_{sensitivity_param}"
+    for branch_param in branch_params:
+        mean_PPE_path_i = glob(f"../{results_directory}/{model_subdirectory_names[0]}/weighted_mean_PPE_dict_{branch_param}_*.pkl")
+        mean_PPE_path_list.append(mean_PPE_path_i[0])
 
-compare_results_directory = f"{results_directory}/compare_fault_models"
+
 if not os.path.exists(f"../{compare_results_directory}"):
         os.makedirs(f"../{compare_results_directory}")
 
-outfile_directory = f"{compare_results_directory}/{file_name}"
 if not os.path.exists(f"../{outfile_directory}"):
         os.makedirs(f"../{outfile_directory}")
 
@@ -62,22 +93,35 @@ if plot_order_name == "pared":
                     "Cape Palliser", "Flat Point"]
 
 if plot_order_name == "porirua":
-    plot_order = ["Porirua CBD north","Porirua CBD south"]
+    plot_order = ["Porirua CBD north", "Porirua CBD south"]
 
 
 if probability_plot:
-    compare_faultmodel_prob_plot(PPE_paths=mean_PPE_path_list, plot_name=file_name,
-                                 outfile_directory=outfile_directory, title=title, pretty_names=pretty_names,
+    if exceed_type == "total_abs":
+        exceed_type_list = ["total_abs"]
+    else:
+        exceed_type_list = ["up", "down"]
+    compare_faultmodel_prob_plot(PPE_paths=mean_PPE_path_list,
+                                 plot_name=file_name,
+                                 outfile_directory=outfile_directory,
+                                 title=title,
+                                 pretty_names=pretty_names,
+                                 exceed_type_list=exceed_type_list,
                                  plot_order=plot_order,
                                  labels_on=labels_on,
                                  file_type_list=file_type_list,
                                  threshold=0.2)
 
+
 if displacement_chart:
-    compare_disps_chart(PPE_paths=mean_PPE_path_list, plot_name=file_name, outfile_directory=outfile_directory,
-                        title=title, pretty_names=pretty_names,
+    compare_disps_chart(PPE_paths=mean_PPE_path_list,
+                        plot_name=file_name,
+                        outfile_directory=outfile_directory,
+                        title=title,
+                        pretty_names=pretty_names,
                         plot_order=plot_order,
-                        labels_on=labels_on, file_type_list=file_type_list)
+                        labels_on=labels_on,
+                        file_type_list=file_type_list)
 
 if compare_hazcurves:
     compare_mean_hazcurves(PPE_paths=mean_PPE_path_list, plot_name=file_name, outfile_directory=outfile_directory,
